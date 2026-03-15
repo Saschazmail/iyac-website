@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In Your Corner Accident Consulting | Find the Right Attorney in Las Vegas</title>
+<link href="index_files/css2.css" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep: #04070F;
+    --navy: #09112B;
+    --navy-mid: #0F1A3E;
+    --gold: #D4AF37;
+    --gold-bright: #F5E070;
+    --gold-light: #FFFFF0;
+    --gold-dark: #8B6010;
+    --white: rgba(255,255,255,0.88);
+    --white-dim: rgba(255,255,255,0.5);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--navy-deep); color:var(--white); font-family:'Montserrat',sans-serif; overflow-x:hidden; }
+
+  .gold-text {
+    background: linear-gradient(180deg,var(--gold-light) 0%,var(--gold-bright) 20%,var(--gold) 50%,var(--gold-dark) 80%,var(--gold) 100%);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  }
+  .gold-line { height:1px; background:linear-gradient(90deg,transparent,var(--gold-dark),var(--gold),var(--gold-bright),var(--gold),var(--gold-dark),transparent); }
+  .gold-line-thick { height:3px; background:linear-gradient(90deg,transparent,var(--gold-dark),var(--gold),var(--gold-bright),var(--gold-light),var(--gold-bright),var(--gold),var(--gold-dark),transparent); }
+
+  /* NAV */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:0 48px; height:70px;
+    display:flex; align-items:center; justify-content:space-between;
+    transition:all 0.4s;
+  }
+  nav.scrolled { background:rgba(4,7,15,0.97); backdrop-filter:blur(16px); border-bottom:1px solid rgba(212,175,55,0.12); }
+  .nav-logo { font-family:'Cinzel',serif; font-size:12px; font-weight:700; letter-spacing:0.2em; color:var(--gold); }
+  .nav-logo span { color:rgba(255,255,255,0.4); font-weight:400; }
+  .nav-links { display:flex; gap:32px; list-style:none; align-items:center; }
+  .nav-links a { font-size:9px; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--white-dim); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--gold); }
+  .nav-cta { background:linear-gradient(135deg,var(--gold-bright),var(--gold),var(--gold-dark)); color:var(--navy-deep) !important; padding:9px 20px; font-weight:700 !important; }
+
+  /* HERO */
+  .hero {
+    min-height:100vh;
+    background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(26,42,94,0.5) 0%,transparent 70%),
+               linear-gradient(180deg,#04070F 0%,#060D20 50%,#04070F 100%);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:120px 24px 80px; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background-image:linear-gradient(rgba(212,175,55,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,0.025) 1px,transparent 1px);
+    background-size:60px 60px; pointer-events:none;
+  }
+  .hero-corners { position:absolute; inset:40px; pointer-events:none; }
+  .corner { position:absolute; width:36px; height:36px; border-color:rgba(212,175,55,0.2); border-style:solid; }
+  .corner-tl { top:0;left:0; border-width:1px 0 0 1px; }
+  .corner-tr { top:0;right:0; border-width:1px 1px 0 0; }
+  .corner-bl { bottom:0;left:0; border-width:0 0 1px 1px; }
+  .corner-br { bottom:0;right:0; border-width:0 1px 1px 0; }
+
+  .hero-eyebrow { font-size:8px; font-weight:700; letter-spacing:0.6em; text-transform:uppercase; color:rgba(212,175,55,0.5); margin-bottom:28px; animation:fadeUp 0.8s ease both; }
+  .hero-logo { width:100%; max-width:580px; margin:0 auto 36px; animation:fadeUp 0.8s ease 0.1s both; }
+  .hero-logo img { width:100%; height:auto; display:block; }
+  .hero-headline { font-family:'Cinzel',serif; font-size:clamp(14px,2vw,18px); font-weight:600; letter-spacing:0.15em; color:rgba(255,255,255,0.7); margin-bottom:16px; animation:fadeUp 0.8s ease 0.2s both; }
+  .hero-tagline { font-family:'Cormorant Garamond',serif; font-size:clamp(20px,3vw,28px); font-style:italic; color:rgba(212,175,55,0.65); letter-spacing:0.06em; margin-bottom:20px; animation:fadeUp 0.8s ease 0.25s both; }
+  .hero-desc { font-size:clamp(13px,1.5vw,15px); line-height:1.85; color:var(--white-dim); max-width:560px; margin:0 auto 48px; animation:fadeUp 0.8s ease 0.3s both; }
+  .hero-ctas { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; animation:fadeUp 0.8s ease 0.4s both; }
+
+  .btn-primary { background:linear-gradient(135deg,var(--gold-bright),var(--gold),var(--gold-dark)); color:var(--navy-deep); padding:16px 44px; font-family:'Cinzel',serif; font-size:11px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all 0.3s; box-shadow:0 8px 32px rgba(212,175,55,0.2); }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(212,175,55,0.35); }
+  .btn-secondary { background:transparent; color:var(--gold); padding:15px 44px; font-family:'Cinzel',serif; font-size:11px; font-weight:600; letter-spacing:0.25em; text-transform:uppercase; text-decoration:none; border:1px solid rgba(212,175,55,0.3); cursor:pointer; transition:all 0.3s; }
+  .btn-secondary:hover { border-color:var(--gold); background:rgba(212,175,55,0.06); }
+
+  .scroll-ind { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .scroll-ind span { font-size:7px; letter-spacing:0.4em; text-transform:uppercase; color:rgba(212,175,55,0.3); }
+  .scroll-line { width:1px; height:36px; background:linear-gradient(180deg,rgba(212,175,55,0.4),transparent); animation:scrollPulse 2s ease-in-out infinite; }
+
+  /* TRUST BAR */
+  .trust-bar { background:rgba(212,175,55,0.05); border-top:1px solid rgba(212,175,55,0.1); border-bottom:1px solid rgba(212,175,55,0.1); padding:22px 48px; display:flex; justify-content:center; gap:52px; flex-wrap:wrap; }
+  .trust-item { display:flex; flex-direction:column; align-items:center; gap:3px; text-align:center; }
+  .trust-num { font-family:'Cinzel',serif; font-size:20px; font-weight:700; color:var(--gold); }
+  .trust-label { font-size:8px; font-weight:600; letter-spacing:0.25em; text-transform:uppercase; color:var(--white-dim); }
+
+  /* SECTIONS */
+  section { padding:90px 48px; }
+  .section-inner { max-width:1100px; margin:0 auto; }
+  .section-eyebrow { font-size:8px; font-weight:700; letter-spacing:0.55em; text-transform:uppercase; color:rgba(212,175,55,0.45); margin-bottom:12px; }
+  .section-title { font-family:'Cinzel',serif; font-size:clamp(22px,3vw,36px); font-weight:700; line-height:1.2; letter-spacing:0.04em; margin-bottom:14px; }
+  .section-sub { font-family:'Cormorant Garamond',serif; font-size:clamp(15px,1.8vw,18px); font-style:italic; color:rgba(212,175,55,0.55); margin-bottom:52px; }
+
+  /* HOW WE HELP */
+  #how-we-help { background:linear-gradient(180deg,var(--navy-deep) 0%,#060D20 100%); }
+  .help-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2px; margin-bottom:56px; }
+  .help-card { background:rgba(9,17,43,0.9); border:1px solid rgba(212,175,55,0.1); padding:36px 26px; transition:border-color 0.3s; }
+  .help-card:hover { border-color:rgba(212,175,55,0.3); }
+  .help-icon { font-size:32px; display:block; margin-bottom:16px; }
+  .help-title { font-family:'Cinzel',serif; font-size:12px; font-weight:700; letter-spacing:0.1em; color:var(--gold); margin-bottom:10px; }
+  .help-desc { font-size:12px; line-height:1.7; color:var(--white-dim); }
+
+  /* ATTORNEY DIRECTORY */
+  #attorneys { background:var(--navy-deep); }
+  .filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
+  .filter-btn { background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.15); color:rgba(212,175,55,0.7); padding:7px 18px; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:600; letter-spacing:0.25em; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background:rgba(212,175,55,0.15); border-color:var(--gold); color:var(--gold); }
+
+  .attorneys-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px; }
+
+  .attorney-card {
+    background:linear-gradient(145deg,rgba(15,26,62,0.8),rgba(9,17,43,0.7));
+    border:1px solid rgba(212,175,55,0.12);
+    overflow:hidden; transition:all 0.3s; position:relative;
+  }
+  .attorney-card:hover { border-color:rgba(212,175,55,0.3); transform:translateY(-3px); box-shadow:0 16px 48px rgba(0,0,0,0.4); }
+  .attorney-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); transform:scaleX(0); transition:transform 0.3s; }
+  .attorney-card:hover::before { transform:scaleX(1); }
+
+  .card-header { padding:24px 24px 0; display:flex; justify-content:space-between; align-items:flex-start; }
+  .card-firm { font-family:'Cinzel',serif; font-size:14px; font-weight:700; color:white; letter-spacing:0.06em; line-height:1.3; margin-bottom:4px; }
+  .card-attorney { font-size:11px; color:rgba(212,175,55,0.7); font-family:'Cormorant Garamond',serif; font-style:italic; }
+  .card-badge { background:rgba(212,175,55,0.12); border:1px solid rgba(212,175,55,0.25); padding:4px 10px; border-radius:2px; font-size:8px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); white-space:nowrap; flex-shrink:0; margin-left:12px; }
+
+  .card-tags { display:flex; flex-wrap:wrap; gap:6px; padding:14px 24px 0; }
+  .tag { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:3px 10px; font-size:8px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+  .tag.lang { border-color:rgba(100,200,255,0.2); color:rgba(100,200,255,0.7); background:rgba(100,200,255,0.05); }
+
+  .card-body { padding:18px 24px; }
+  .card-desc { font-size:12px; line-height:1.7; color:var(--white-dim); margin-bottom:16px; }
+
+  /* Strengths / Weaknesses */
+  .sw-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+  .sw-box { padding:12px 14px; }
+  .sw-box.strengths { background:rgba(34,197,94,0.05); border:1px solid rgba(34,197,94,0.15); }
+  .sw-box.weaknesses { background:rgba(239,68,68,0.05); border:1px solid rgba(239,68,68,0.12); }
+  .sw-label { font-size:7px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; margin-bottom:8px; display:block; }
+  .sw-box.strengths .sw-label { color:rgba(34,197,94,0.7); }
+  .sw-box.weaknesses .sw-label { color:rgba(239,68,68,0.6); }
+  .sw-list { list-style:none; }
+  .sw-list li { font-size:10.5px; line-height:1.5; color:rgba(255,255,255,0.55); padding:2px 0; padding-left:14px; position:relative; }
+  .sw-list li::before { content:''; position:absolute; left:0; top:7px; width:5px; height:5px; border-radius:50%; }
+  .sw-box.strengths .sw-list li::before { background:rgba(34,197,94,0.6); }
+  .sw-box.weaknesses .sw-list li::before { background:rgba(239,68,68,0.5); }
+
+  .card-footer { padding:0 24px 20px; display:flex; gap:8px; flex-wrap:wrap; }
+  .review-link { display:inline-flex; align-items:center; gap:5px; background:rgba(212,175,55,0.07); border:1px solid rgba(212,175,55,0.18); padding:6px 12px; font-size:9px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); text-decoration:none; transition:all 0.2s; }
+  .review-link:hover { background:rgba(212,175,55,0.15); border-color:var(--gold); }
+  .consult-btn { display:inline-flex; align-items:center; gap:5px; background:linear-gradient(135deg,var(--gold-bright),var(--gold)); padding:6px 16px; font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--navy-deep); text-decoration:none; border:none; cursor:pointer; transition:all 0.2s; }
+  .consult-btn:hover { opacity:0.85; }
+
+  /* WHAT TO EXPECT */
+  #what-to-expect { background:linear-gradient(180deg,var(--navy-deep) 0%,#060D20 100%); }
+  .timeline { position:relative; padding-left:40px; }
+  .timeline::before { content:''; position:absolute; left:14px; top:0; bottom:0; width:1px; background:linear-gradient(180deg,var(--gold),rgba(212,175,55,0.1)); }
+  .timeline-item { position:relative; margin-bottom:40px; }
+  .timeline-dot { position:absolute; left:-33px; top:4px; width:18px; height:18px; background:linear-gradient(135deg,var(--gold-bright),var(--gold)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:700; color:var(--navy-deep); }
+  .timeline-title { font-family:'Cinzel',serif; font-size:13px; font-weight:700; color:var(--gold); letter-spacing:0.08em; margin-bottom:8px; }
+  .timeline-desc { font-size:12.5px; line-height:1.75; color:var(--white-dim); max-width:680px; }
+
+  /* FAQ */
+  #faq { background:var(--navy-deep); }
+  .faq-list { max-width:760px; }
+  .faq-item { border-bottom:1px solid rgba(212,175,55,0.08); }
+  .faq-q { width:100%; background:none; border:none; color:white; padding:20px 0; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-family:'Cinzel',serif; font-size:12px; font-weight:600; letter-spacing:0.06em; text-align:left; }
+  .faq-q:hover { color:var(--gold); }
+  .faq-icon { font-size:18px; color:var(--gold); flex-shrink:0; transition:transform 0.3s; }
+  .faq-a { font-size:13px; line-height:1.8; color:var(--white-dim); padding:0 0 20px; display:none; }
+  .faq-item.open .faq-a { display:block; }
+  .faq-item.open .faq-icon { transform:rotate(45deg); }
+
+  /* CONTACT */
+  #contact { background:linear-gradient(180deg,#060D20 0%,var(--navy-deep) 100%); }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .contact-info h2 { font-family:'Cinzel',serif; font-size:clamp(20px,2.5vw,30px); font-weight:700; line-height:1.3; margin-bottom:16px; }
+  .contact-info p { font-size:13.5px; line-height:1.8; color:var(--white-dim); margin-bottom:14px; }
+  .contact-detail { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+  .contact-icon { width:42px; height:42px; background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.2); display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+  .contact-text strong { display:block; font-size:14px; font-weight:600; color:white; margin-bottom:2px; }
+  .contact-text span { font-size:10px; color:var(--white-dim); }
+  .contact-form { background:rgba(9,17,43,0.7); border:1px solid rgba(212,175,55,0.12); padding:40px 36px; }
+  .form-title { font-family:'Cinzel',serif; font-size:14px; font-weight:700; letter-spacing:0.12em; color:var(--gold); margin-bottom:24px; }
+  .form-group { margin-bottom:18px; }
+  .form-group label { display:block; font-size:8px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:rgba(212,175,55,0.55); margin-bottom:7px; }
+  .form-group input, .form-group select, .form-group textarea { width:100%; background:rgba(4,7,15,0.8); border:1px solid rgba(212,175,55,0.15); color:white; padding:12px 14px; font-family:'Montserrat',sans-serif; font-size:13px; outline:none; transition:border-color 0.2s; -webkit-appearance:none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:rgba(212,175,55,0.4); }
+  .form-group select option { background:var(--navy); }
+  .form-group textarea { height:100px; resize:vertical; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .form-submit { width:100%; background:linear-gradient(135deg,var(--gold-bright),var(--gold),var(--gold-dark)); color:var(--navy-deep); padding:15px; border:none; cursor:pointer; font-family:'Cinzel',serif; font-size:11px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; transition:all 0.3s; margin-top:6px; }
+  .form-submit:hover { opacity:0.88; box-shadow:0 8px 32px rgba(212,175,55,0.3); }
+  .form-confirm { display:none; text-align:center; padding:36px 0; }
+  .form-confirm .check { font-size:44px; display:block; margin-bottom:14px; }
+  .form-confirm h3 { font-family:'Cinzel',serif; font-size:17px; color:var(--gold); margin-bottom:8px; }
+  .form-confirm p { font-size:13px; color:var(--white-dim); line-height:1.6; }
+
+  /* FOOTER */
+  footer { background:rgba(2,4,10,0.98); border-top:1px solid rgba(212,175,55,0.1); padding:36px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+  .footer-brand { font-family:'Cinzel',serif; font-size:11px; font-weight:700; letter-spacing:0.2em; color:var(--gold); }
+  .footer-brand span { display:block; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:400; color:var(--white-dim); margin-top:3px; }
+  .footer-legal { font-size:8.5px; color:rgba(255,255,255,0.18); line-height:1.6; max-width:480px; text-align:center; }
+  .footer-contact { font-size:12px; font-weight:600; color:var(--gold); text-decoration:none; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes scrollPulse { 0%,100%{opacity:0.4} 50%{opacity:0.9} }
+
+  @media(max-width:768px){
+    nav{padding:0 20px;} .nav-links{display:none;}
+    section{padding:60px 20px;}
+    .contact-grid{grid-template-columns:1fr; gap:36px;}
+    .form-row{grid-template-columns:1fr;}
+    .sw-grid{grid-template-columns:1fr;}
+    footer{flex-direction:column; align-items:flex-start;}
+    .footer-legal{text-align:left;}
+    .trust-bar{padding:18px; gap:24px;}
+    .lv-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">In Your Corner <span>/ Accident Consulting</span></div>
+  <ul class="nav-links">
+    <li><a href="#how-we-help">How We Help</a></li>
+    <li><a href="#attorneys">Attorney Directory</a></li>
+    <li><a href="#what-to-expect">What to Expect</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Get Help Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-corners">
+    <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+  </div>
+  <div class="hero-eyebrow">Las Vegas Accident Advocacy · Free Guidance · No Obligation</div>
+  <div class="hero-logo">
+    <img src="index_files/IYAC-logo.jpg" alt="In Your Corner Accident Consulting">
+  </div>
+  <p class="hero-headline">You Deserve the Right Attorney — Not Just Any Attorney</p>
+  <p class="hero-tagline">We fight for you — and help you through.</p>
+  <p class="hero-desc">
+    After an accident, every attorney claims to be the best. We cut 
+through the noise. Our free advocacy service helps injured Las Vegas 
+residents and visitors find the attorney who is the right fit for their 
+specific case — no guesswork, no pressure, no cost.
+  </p>
+  <div class="hero-ctas">
+    <a href="#contact" class="btn-primary">Get Free Guidance Now</a>
+    <a href="#attorneys" class="btn-secondary">View Attorney Directory</a>
+  </div>
+  <div class="scroll-ind">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-num">Free</span><span class="trust-label">Our Service</span></div>
+  <div class="trust-item"><span class="trust-num">24/7</span><span class="trust-label">Available</span></div>
+  <div class="trust-item"><span class="trust-num">10</span><span class="trust-label">Vetted Firms</span></div>
+  <div class="trust-item"><span class="trust-num">No</span><span class="trust-label">Obligation</span></div>
+  <div class="trust-item"><span class="trust-num">100%</span><span class="trust-label">Las Vegas Focus</span></div>
+</div>
+
+<!-- HOW WE HELP -->
+<section id="how-we-help">
+  <div class="section-inner">
+    <div class="section-eyebrow">Our Services</div>
+    <h2 class="section-title gold-text">We're In Your Corner<br>From Day One</h2>
+    <p class="section-sub">One call. We handle everything — including finding you the right legal representation.</p>
+    <div class="help-grid">
+      <div class="help-card">
+        <span class="help-icon">🚗</span>
+        <div class="help-title">Emergency Rides</div>
+        <p class="help-desc">Stranded after your accident? We arrange immediate transportation from the scene or hospital — 24 hours a day.</p>
+      </div>
+      <div class="help-card">
+        <span class="help-icon">🔧</span>
+        <div class="help-title">Body Shop &amp; Rental</div>
+        <p class="help-desc">We connect you with trusted body shops and rental car companies who understand accident situations.</p>
+      </div>
+      <div class="help-card">
+        <span class="help-icon">🏥</span>
+        <div class="help-title">Medical Referrals</div>
+        <p class="help-desc">We connect you with doctors and chiropractors who specialize in accident injuries and work on lien.</p>
+      </div>
+      <div class="help-card">
+        <span class="help-icon">⚖️</span>
+        <div class="help-title">Attorney Matching</div>
+        <p class="help-desc">We review your case details and match you with the attorney whose strengths, style, and specialty best fit your situation.</p>
+      </div>
+      <div class="help-card">
+        <span class="help-icon">🧭</span>
+        <div class="help-title">Process Guidance</div>
+        <p class="help-desc">We walk you through what to expect — from insurance calls to medical treatment to the legal process — in plain language.</p>
+      </div>
+      <div class="help-card">
+        <span class="help-icon">🗣️</span>
+        <div class="help-title">Multilingual Support</div>
+        <p class="help-desc">We serve Las Vegas's diverse community. Spanish, Mandarin, Bosnian/Croatian, Filipino — we find the right advocate for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ATTORNEY DIRECTORY -->
+<section id="attorneys">
+  <div class="section-inner">
+    <div class="section-eyebrow">Attorney Directory</div>
+    <h2 class="section-title gold-text">Las Vegas Personal Injury<br>Attorneys — Honestly Reviewed</h2>
+    <p class="section-sub">We don't rank these firms — we profile them honestly so you can decide who fits your case.</p>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCards('all', this)">All Firms</button>
+      <button class="filter-btn" onclick="filterCards('high-value', this)">High-Value Cases</button>
+      <button class="filter-btn" onclick="filterCards('spanish', this)">Spanish-Speaking</button>
+      <button class="filter-btn" onclick="filterCards('asian', this)">Asian Community</button>
+      <button class="filter-btn" onclick="filterCards('women-led', this)">Women-Led</button>
+      <button class="filter-btn" onclick="filterCards('boutique', this)">Boutique / Personal</button>
+    </div>
+
+    <div class="attorneys-grid" id="attorneysGrid">
+
+      <!-- 1. LADAH LAW -->
+      <div class="attorney-card" data-tags="high-value">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Ladah Law Firm</div>
+            <div class="card-attorney">Ramzy Ladah, Esq.</div>
+          </div>
+          <span class="card-badge">Trial Powerhouse</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Wrongful Death</span>
+          <span class="tag">Catastrophic Injury</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Named Litigator of the Year 2024 with a 
+perfect 10.0 Avvo rating. Former insurance defense insider who now 
+fights for victims — he knows exactly how the other side thinks. Over 
+$400 million recovered including a landmark $70.6 million wrongful death
+ verdict.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Decorated trial attorney — not afraid to go to court</li>
+                <li>Insurance defense background = insider advantage</li>
+                <li>$400M+ in total recoveries</li>
+                <li>Perfect 10.0 Avvo rating</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Best suited for larger, complex cases</li>
+                <li>High demand — may be selective with cases</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.ladahlaw.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.google.com/search?q=Ladah+Law+Firm+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 2. NAQVI -->
+      <div class="attorney-card" data-tags="high-value">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Naqvi Injury Law</div>
+            <div class="card-attorney">Farhan Naqvi, Esq.</div>
+          </div>
+          <span class="card-badge">Never Lost a Trial</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Truck Accidents</span>
+          <span class="tag">Serious Injuries</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">One of Las Vegas's most aggressive PI 
+firms with a team of 70+ professionals and an unblemished trial record. 
+Over $150 million recovered. Consistently ranked #1 on Yelp for Las 
+Vegas personal injury. Known for taking on large cases other firms won't
+ touch.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Undefeated trial record</li>
+                <li>Large team means more resources for your case</li>
+                <li>Strong online reputation — #1 Yelp rating</li>
+                <li>Handles complex, high-value cases</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Larger firm — less personal attorney access</li>
+                <li>May feel less boutique for smaller cases</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.naqvilaw.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.google.com/search?q=Naqvi+Injury+Law+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 3. SHOOK & STONE -->
+      <div class="attorney-card" data-tags="high-value">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Shook &amp; Stone</div>
+            <div class="card-attorney">Charles Shook &amp; Matthew Stone</div>
+          </div>
+          <span class="card-badge">$1B+ Recovered</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">All Accident Types</span>
+          <span class="tag">Workers' Comp</span>
+          <span class="tag">Wrongful Death</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Nevada's most established personal injury
+ firm. Over $1 billion recovered for 20,000+ Nevada clients since 1997. 
+Five-time Best of Las Vegas winner. Deep courtroom experience across 
+every type of personal injury case — the household name for a reason.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>$1 billion+ total recovered in 25+ years</li>
+                <li>Handles every type of PI case</li>
+                <li>5x Best of Las Vegas winner</li>
+                <li>Massive local brand recognition</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Very large firm — case may be handled by associate</li>
+                <li>High volume can mean less individual attention</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.shookstone.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.google.com/search?q=Shook+Stone+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 4. RICHARD HARRIS -->
+      <div class="attorney-card" data-tags="high-value">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Richard Harris Law Firm</div>
+            <div class="card-attorney">Richard Harris, Esq.</div>
+          </div>
+          <span class="card-badge">40+ Years</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Slip &amp; Fall</span>
+          <span class="tag">Motorcycle</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">The most recognizable name in Las Vegas 
+PI law. Over 40 years serving Nevada accident victims with the highest 
+billboard and TV presence in the city. A household name with a proven 
+track record across all types of personal injury cases.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>40+ years of Nevada courtroom experience</li>
+                <li>Massive brand — insurance companies know the name</li>
+                <li>Handles virtually all PI case types</li>
+                <li>High name recognition can aid settlements</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Very high case volume — personal access varies</li>
+                <li>Mixed client communication reviews</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.richardharrislaw.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.google.com/search?q=Richard+Harris+Law+Firm+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 5. JACK BERNSTEIN -->
+      <div class="attorney-card" data-tags="high-value">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Jack Bernstein Injury Lawyers</div>
+            <div class="card-attorney">Jack Bernstein, Esq.</div>
+          </div>
+          <span class="card-badge">$500M+ Recovered</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Catastrophic Injury</span>
+          <span class="tag">Wrongful Death</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Over 40 years of experience with more 
+than $500 million in verdicts and settlements. National Top 100 Trial 
+Lawyers member. One of Las Vegas's most decorated and long-standing 
+personal injury attorneys with a reputation built entirely on results.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>$500M+ in total recoveries</li>
+                <li>National Top 100 Trial Lawyers</li>
+                <li>40+ years proven track record</li>
+                <li>Strong for catastrophic &amp; wrongful death</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Larger cases tend to get more attention</li>
+                <li>Traditional firm style — less tech-forward</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.jackbernstein.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.google.com/search?q=Jack+Bernstein+Injury+Lawyers+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 6. MEESHA MOULTON -->
+      <div class="attorney-card" data-tags="women-led boutique">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Meesha Moulton Law</div>
+            <div class="card-attorney">Meesha Moulton, Esq.</div>
+          </div>
+          <span class="card-badge">Women-Led</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Personal Attention</span>
+          <span class="tag">Top 40 Under 40</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Top 100 Civil Plaintiff attorney, Top 40 
+Under 40, and Women of Influence 2022 honoree. A rising star in Las 
+Vegas PI law known for her hands-on approach and personal commitment to 
+every client. Ideal for clients who want direct attorney access 
+throughout their case.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Direct attorney access — not handed to paralegals</li>
+                <li>Top 100 Civil Plaintiff &amp; Top 40 Under 40</li>
+                <li>Strong community presence &amp; relationships</li>
+                <li>Women of Influence honoree 2022</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Boutique firm — fewer staff resources than large firms</li>
+                <li>Some client communication concerns in reviews</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.google.com/search?q=Meesha+Moulton+Law+Las+Vegas" target="_blank" class="review-link">🌐 Search</a>
+          <a href="https://www.google.com/search?q=Meesha+Moulton+Law+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 7. VLADANA -->
+      <div class="attorney-card" data-tags="boutique women-led">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Dervisevic Injury Law</div>
+            <div class="card-attorney">Vladana Dervisevic, Esq.</div>
+          </div>
+          <span class="card-badge">Super Lawyers 4x</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag lang">🗣 Bosnian / Croatian</span>
+          <span class="tag">Personal Injury</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Selected to Super Lawyers four 
+consecutive years and National Trial Lawyers Top 40 Under 40. Previously
+ at Dimopoulos Injury Law, now running her own boutique firm. Fluent in 
+Bosnian and Croatian — an exceptional choice for Eastern European 
+clients and anyone seeking a highly personal experience.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Super Lawyers 4 consecutive years</li>
+                <li>Fluent in Bosnian &amp; Croatian</li>
+                <li>Top 40 Under 40 — National Trial Lawyers</li>
+                <li>Highly personal boutique firm experience</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Newer independent firm — still building team</li>
+                <li>Smaller capacity for simultaneous cases</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.google.com/search?q=Vladana+Dervisevic+Las+Vegas+attorney" target="_blank" class="review-link">🌐 Search</a>
+          <a href="https://www.google.com/search?q=Vladana+Dervisevic+attorney+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 8. DE CASTROVERDE -->
+      <div class="attorney-card" data-tags="spanish high-value">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">De Castroverde Law Group</div>
+            <div class="card-attorney">Alex &amp; Orlando De Castroverde</div>
+          </div>
+          <span class="card-badge">Hispanic-Owned</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">All PI Cases</span>
+          <span class="tag lang">🗣 Español</span>
+          <span class="tag">Immigration</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Nevada's largest 100% Hispanic-owned 
+injury firm, in business since 1989. Hundreds of millions recovered. 
+Named 2022 Business of the Year by the Vegas Chamber. The premier choice
+ for Spanish-speaking accident victims, with a full bilingual team and 
+deep community roots.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Fully bilingual — Spanish-first service available</li>
+                <li>35+ years Nevada experience</li>
+                <li>Hundreds of millions recovered</li>
+                <li>2022 Business of the Year — Vegas Chamber</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Large firm — case staffing varies by size</li>
+                <li>Also handles immigration — PI may compete for bandwidth</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.decastroverdelaw.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.google.com/search?q=De+Castroverde+Law+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 9. HWANG LAW GROUP -->
+      <div class="attorney-card" data-tags="asian women-led boutique">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Hwang Law Group</div>
+            <div class="card-attorney">Tin Hwang, Esq.</div>
+          </div>
+          <span class="card-badge">Mandarin-Speaking</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag lang">🗣 普通话 Mandarin</span>
+          <span class="tag">Slip &amp; Fall</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Founded by Tin Hwang, a first-generation 
+Chinese-American attorney fluent in Mandarin. Voted one of the "10 Best 
+Attorneys" by the American Institute of Personal Injury Attorneys. 
+Special Legal Advocate for the Asian American Advocacy Clinic. The top 
+choice for Mandarin-speaking accident victims in Las Vegas.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Fluent Mandarin — native-language service</li>
+                <li>Top 10 Best Attorneys — AIPIA</li>
+                <li>Asian American Advocacy Clinic advocate</li>
+                <li>Personal, culturally sensitive approach</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Boutique firm — limited large case bandwidth</li>
+                <li>Smaller online review volume than larger firms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.google.com/search?q=Hwang+Law+Group+Las+Vegas+Tin+Hwang" target="_blank" class="review-link">🌐 Search</a>
+          <a href="https://www.google.com/search?q=Hwang+Law+Group+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 10. MICHAEL HUA -->
+      <div class="attorney-card" data-tags="asian boutique">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Michael Hua Injury Law</div>
+            <div class="card-attorney">Michael Hua, Esq.</div>
+          </div>
+          <span class="card-badge">Chinese-American</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag lang">🗣 Chinese / Tagalog</span>
+          <span class="tag">Wrongful Death</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Las Vegas native, UNLV Boyd School of 
+Law. Former Fortune 500 and insurance defense attorney who switched 
+sides to fight for people. Special Legal Advocate for the Asian American
+ Advocacy Clinic. His firm also has attorney Jericho Remitio fluent in 
+Tagalog and multiple Filipino dialects — serving the full Asian Pacific 
+community.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Insurance defense background = knows their tactics</li>
+                <li>Chinese &amp; Filipino language service available</li>
+                <li>Las Vegas native — deep local knowledge</li>
+                <li>Highly personal &amp; responsive — known for communication</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Smaller firm — best for personal injury, not mass tort</li>
+                <li>Growing review volume — newer independent firm</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.michaelhua.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.yelp.com/biz/michael-hua-injury-law-las-vegas" target="_blank" class="review-link">⭐ Yelp</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+    </div><!-- /attorneys-grid -->
+  </div>
+</section>
+
+<!-- WHAT TO EXPECT -->
+<section id="what-to-expect">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Legal Process</div>
+    <h2 class="section-title gold-text">What Happens After<br>You Hire an Attorney</h2>
+    <p class="section-sub">Most people have never needed a PI attorney before. Here's what to expect — no legal jargon.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-title">Free Consultation</div>
+        <p class="timeline-desc">Every PI attorney on our list offers a 
+free consultation. You meet, explain what happened, and they tell you if
+ you have a case. No obligation. You pay nothing at this stage — ever.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-title">Signing the Retainer</div>
+        <p class="timeline-desc">If you proceed, you sign a contingency 
+fee agreement. This means your attorney only gets paid if you win — 
+typically 33% of the settlement. You pay zero upfront.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-title">Investigation &amp; Medical Treatment</div>
+        <p class="timeline-desc">Your attorney gathers evidence, police 
+reports, and witness statements. Meanwhile, your job is to follow your 
+doctor's treatment plan — documented medical treatment is the backbone 
+of your case.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-title">Demand Letter &amp; Negotiation</div>
+        <p class="timeline-desc">Once your treatment is complete, your 
+attorney sends a demand letter to the insurance company. Negotiation 
+begins. Most cases settle without going to trial — typically within 6–18
+ months.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">5</div>
+        <div class="timeline-title">Settlement or Trial</div>
+        <p class="timeline-desc">If a fair settlement is reached, you 
+receive your check (minus attorney fees and medical liens). If not, your
+ attorney takes the case to trial. The attorneys on our list are not 
+afraid of either outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-eyebrow">Common Questions</div>
+    <h2 class="section-title gold-text">Questions to Ask<br>Your Attorney</h2>
+    <p class="section-sub">Before you sign anything, make sure you have answers to these.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How much experience do you have with cases like mine? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Not all PI cases are the same. A car accident
+ on the Strip involving a tourist is very different from a commercial 
+truck accident on I-15. Ask specifically about their experience with 
+your type of accident, injury severity, and insurance situation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Will you personally handle my case, or will it go to an associate? <span class="faq-icon">+</span></button>
+        <div class="faq-a">At larger firms, senior partners often sign 
+cases but hand them to junior associates or paralegals. There's nothing 
+wrong with this — but you deserve to know who will actually be working 
+your case day-to-day. Ask directly.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is your fee structure, and what costs come out of my settlement? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Standard contingency fee is 33% if settled, 
+often 40% if it goes to trial. But there are also case costs — filing 
+fees, expert witnesses, medical records. Ask whether those costs come 
+off the top before or after the attorney's percentage is calculated. The
+ difference can be thousands of dollars.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What is your honest assessment of my case value? <span class="faq-icon">+</span></button>
+        <div class="faq-a">A good attorney will give you a realistic 
+range — not just a number to impress you. Ask for their reasoning: 
+policy limits, liability percentage, injury severity, and comparable 
+cases. If they give you an unrealistically high number in the 
+consultation, that's a red flag.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">How often will you update me on my case? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Communication is the #1 complaint clients 
+have about PI attorneys. Ask specifically: How often will I hear from 
+you? Who do I call with questions? What is your typical response time? 
+Getting this in writing as part of your retainer is completely 
+reasonable.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">What happens if I'm not happy and want to switch attorneys? <span class="faq-icon">+</span></button>
+        <div class="faq-a">You have the right to change attorneys at any
+ time. However, your original attorney may have a lien on your case for 
+work performed. Ask about this upfront. The good news: In Your Corner 
+can help you navigate this if it ever comes to that — we're here 
+throughout the process.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Have you ever taken a case like mine to trial? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Insurance companies know which attorneys 
+actually go to trial and which ones always settle. An attorney with a 
+known willingness to go to court often gets better settlement offers. 
+Ask about their trial experience with your type of case specifically.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-eyebrow">Free Guidance</div>
+        <h2 class="gold-text">Not Sure Where<br>to Start? We Are.</h2>
+        <p>Tell us what happened. We'll listen, ask the right questions,
+ and point you toward the attorney who is genuinely the best fit for 
+your case — not just whoever picks up the phone first.</p>
+        <p>Our service is completely free to you. We are paid by our 
+attorney partners — your consultation costs nothing and obligates you to
+ nothing.</p>
+        <div style="margin-top:32px;">
+          <div class="contact-detail">
+            <div class="contact-icon">📞</div>
+            <div class="contact-text">
+              <strong>(702) 996-4996</strong>
+              <span>Call or text — available 24/7</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-text">
+              <strong>hello@accidentelves.com</strong>
+              <span>Email us anytime</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon">📍</div>
+            <div class="contact-text">
+              <strong>Las Vegas, Nevada</strong>
+              <span>Serving Clark County &amp; all of Southern Nevada</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:36px;">
+          <div class="gold-line" style="margin-bottom:22px;"></div>
+          <p style="font-size:11px;color:rgba(255,255,255,0.25);line-height:1.7;">In
+ Your Corner Accident Consulting LLC is a free advocacy and referral 
+service for accident victims. We are not a law firm and do not provide 
+legal advice. Attorney referrals are made based on case fit and our 
+partner network. We are compensated by our attorney partners — never by 
+you.</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-title">Tell Us About Your Accident</div>
+        <div id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Your first name" id="fname">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Your last name" id="lname">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(702) 555-0000" id="phone">
+          </div>
+          <div class="form-group">
+            <label>Type of Accident</label>
+            <select id="accidentType">
+              <option value="" selected="selected">Select accident type...</option>
+              <option>Car accident</option>
+              <option>Truck / commercial vehicle</option>
+              <option>Motorcycle accident</option>
+              <option>Rideshare (Uber/Lyft)</option>
+              <option>Slip &amp; fall / premises liability</option>
+              <option>Pedestrian accident</option>
+              <option>Bicycle accident</option>
+              <option>Wrongful death</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Language</label>
+            <select id="language">
+              <option selected="selected">English</option>
+              <option>Spanish / Español</option>
+              <option>Mandarin / 普通话</option>
+              <option>Bosnian / Croatian</option>
+              <option>Tagalog / Filipino</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell Us What Happened</label>
+            <textarea placeholder="Briefly describe your accident and any injuries. The more detail you share, the better we can match you..." id="message"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">Get Free Attorney Matching →</button>
+        </div>
+        <div class="form-confirm" id="formConfirm">
+          <span class="check">✅</span>
+          <h3>We're In Your Corner</h3>
+          <p>We received your information and will reach out within the hour. If you need immediate help, call us at <strong>(702) 996-4996</strong> — we're available 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line-thick"></div>
+<footer>
+  <div class="footer-brand">
+    IN YOUR CORNER ACCIDENT CONSULTING
+    <span>Las Vegas, Nevada · (702) 996-4996 · hello@accidentelves.com</span>
+  </div>
+  <div class="footer-legal">© 2025 In Your Corner Accident Consulting 
+LLC. Free advocacy service for accident victims. Not a law firm. 
+Attorney profiles are for informational purposes — inclusion does not 
+constitute endorsement. We are compensated by our partner attorneys, 
+never by clients.</div>
+  <a href="tel:7029964996" class="footer-contact">(702) 996-4996</a>
+</footer>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // FAQ toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Filter cards
+  function filterCards(tag, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.attorney-card').forEach(card => {
+      if (tag === 'all') {
+        card.style.display = '';
+      } else {
+        const tags = card.dataset.tags || '';
+        card.style.display = tags.includes(tag) ? '' : 'none';
+      }
+    });
+  }
+
+  // Form submit
+  function submitForm() {
+    const fname = document.getElementById('fname').value;
+    const phone = document.getElementById('phone').value;
+    if (!fname || !phone) {
+      alert('Please provide your name and phone number so we can reach you.');
+      return;
+    }
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formConfirm').style.display = 'block';
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+
+</body></html>
