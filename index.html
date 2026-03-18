@@ -108,6 +108,25 @@
   .filter-btn { background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.15); color:rgba(212,175,55,0.7); padding:7px 18px; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:600; letter-spacing:0.25em; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
   .filter-btn:hover, .filter-btn.active { background:rgba(212,175,55,0.15); border-color:var(--gold); color:var(--gold); }
 
+  /* SORT BAR */
+  .sort-bar { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+  .sort-label { font-size:8px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:rgba(212,175,55,0.55); white-space:nowrap; }
+  .sort-select { background:rgba(4,7,15,0.8); border:1px solid rgba(212,175,55,0.2); color:var(--gold); padding:8px 32px 8px 14px; font-family:'Montserrat',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.08em; outline:none; cursor:pointer; -webkit-appearance:none; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23D4AF37'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 10px center; }
+  .sort-select:focus { border-color:var(--gold); }
+  .sort-select option { background:var(--navy); }
+
+  /* IYC LEGEND */
+  .iyc-legend { background:rgba(212,175,55,0.04); border:1px solid rgba(212,175,55,0.15); padding:18px 22px; margin-bottom:32px; }
+  .iyc-legend-title { font-family:'Cinzel',serif; font-size:10px; font-weight:700; letter-spacing:0.15em; color:var(--gold); margin-bottom:8px; }
+  .iyc-legend-desc { font-size:11px; line-height:1.7; color:var(--white-dim); margin-bottom:10px; }
+  .iyc-legend-desc strong { color:rgba(212,175,55,0.85); }
+  .iyc-sources { display:flex; gap:20px; flex-wrap:wrap; }
+  .iyc-source { font-size:10px; color:var(--white-dim); border-left:2px solid rgba(212,175,55,0.25); padding-left:10px; }
+  .iyc-source strong { color:var(--gold); display:block; margin-bottom:2px; }
+
+  /* IYC score tag on cards */
+  .tag.iyc-score-tag { border-color:rgba(212,175,55,0.3); color:var(--gold); background:rgba(212,175,55,0.08); }
+
   .attorneys-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px; }
 
   .attorney-card {
@@ -243,12 +262,9 @@
   <div class="hero-logo">
     <img src="IYAC-logo.png" alt="In Your Corner Accident Consulting">
   </div>
-  <p class="hero-headline">You Deserve the Right Attorney — Not Just Any Attorney</p>
+  <p class="hero-headline">The attorney on the biggest billboard isn't always the best fit for your case.</p>
   <p class="hero-desc">
-    After an accident, every attorney claims to be the best. We cut 
-through the noise. Our free advocacy service helps injured Las Vegas 
-residents and visitors find the attorney who is the right fit for their 
-specific case — no guesswork, no pressure, no cost.
+    You've seen the billboards. You've heard the jingles. But the attorney who spends the most on advertising isn't necessarily the one who will fight hardest for you. We help you find the one who will.
   </p>
   <div class="hero-ctas">
     <a href="#contact" class="btn-primary">Get Free Guidance Now</a>
@@ -264,7 +280,7 @@ specific case — no guesswork, no pressure, no cost.
 <div class="trust-bar">
   <div class="trust-item"><span class="trust-num">Free</span><span class="trust-label">Our Service</span></div>
   <div class="trust-item"><span class="trust-num">24/7</span><span class="trust-label">Available</span></div>
-  <div class="trust-item"><span class="trust-num">10</span><span class="trust-label">Vetted Firms</span></div>
+  <div class="trust-item"><span class="trust-num">17</span><span class="trust-label">Vetted Firms</span></div>
   <div class="trust-item"><span class="trust-num">No</span><span class="trust-label">Obligation</span></div>
   <div class="trust-item"><span class="trust-num">100%</span><span class="trust-label">Las Vegas Focus</span></div>
 </div>
@@ -326,10 +342,30 @@ specific case — no guesswork, no pressure, no cost.
       <button class="filter-btn" onclick="filterCards('boutique', this)">Boutique / Personal</button>
     </div>
 
+    <div class="sort-bar">
+      <span class="sort-label">Sort By:</span>
+      <select class="sort-select" id="sortSelect" onchange="sortCards(this.value)">
+        <option value="default">Default Order</option>
+        <option value="iyc">In Your Corner Score (IYC)</option>
+        <option value="recovered">Total Amount Recovered</option>
+        <option value="google">Google Maps Rating</option>
+      </select>
+    </div>
+
+    <div class="iyc-legend">
+      <div class="iyc-legend-title">★ About the IYC Score</div>
+      <p class="iyc-legend-desc">The <strong>In Your Corner (IYC) Score</strong> is a composite rating out of 5.0, calculated from three independent attorney credentialing systems:</p>
+      <div class="iyc-sources">
+        <div class="iyc-source"><strong>Avvo</strong>Peer &amp; judicial ratings, client reviews, disciplinary record (scale of 10, normalized)</div>
+        <div class="iyc-source"><strong>Martindale-Hubbell</strong>AV Preeminent® / BV Distinguished® peer-reviewed ethical &amp; legal ability ratings</div>
+        <div class="iyc-source"><strong>Super Lawyers®</strong>Multi-factor peer nomination &amp; independent evaluation — top 5% of attorneys per state</div>
+      </div>
+    </div>
+
     <div class="attorneys-grid" id="attorneysGrid">
 
       <!-- 1. LADAH LAW -->
-      <div class="attorney-card" data-tags="high-value">
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.9" data-recovered="400" data-google="4.8">
         <div class="card-header">
           <div>
             <div class="card-firm">Ladah Law Firm</div>
@@ -375,7 +411,7 @@ $400 million recovered including a landmark $70.6 million wrongful death
       </div>
 
       <!-- 2. NAQVI -->
-      <div class="attorney-card" data-tags="high-value">
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.7" data-recovered="150" data-google="4.9">
         <div class="card-header">
           <div>
             <div class="card-firm">Naqvi Injury Law</div>
@@ -421,7 +457,7 @@ Vegas personal injury. Known for taking on large cases other firms won't
       </div>
 
       <!-- 3. SHOOK & STONE -->
-      <div class="attorney-card" data-tags="high-value">
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.6" data-recovered="1000" data-google="4.7">
         <div class="card-header">
           <div>
             <div class="card-firm">Shook &amp; Stone</div>
@@ -466,7 +502,7 @@ every type of personal injury case — the household name for a reason.</p>
       </div>
 
       <!-- 4. RICHARD HARRIS -->
-      <div class="attorney-card" data-tags="high-value">
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.5" data-recovered="500" data-google="4.6">
         <div class="card-header">
           <div>
             <div class="card-firm">Richard Harris Law Firm</div>
@@ -511,7 +547,7 @@ track record across all types of personal injury cases.</p>
       </div>
 
       <!-- 5. JACK BERNSTEIN -->
-      <div class="attorney-card" data-tags="high-value">
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.8" data-recovered="500" data-google="4.8">
         <div class="card-header">
           <div>
             <div class="card-firm">Jack Bernstein Injury Lawyers</div>
@@ -556,7 +592,7 @@ personal injury attorneys with a reputation built entirely on results.</p>
       </div>
 
       <!-- 6. MEESHA MOULTON -->
-      <div class="attorney-card" data-tags="women-led boutique">
+      <div class="attorney-card" data-tags="women-led boutique" data-iyc="4.4" data-recovered="25" data-google="4.9">
         <div class="card-header">
           <div>
             <div class="card-firm">Meesha Moulton Law</div>
@@ -602,7 +638,7 @@ throughout their case.</p>
       </div>
 
       <!-- 7. VLADANA -->
-      <div class="attorney-card" data-tags="boutique women-led">
+      <div class="attorney-card" data-tags="boutique women-led" data-iyc="4.6" data-recovered="20" data-google="5.0">
         <div class="card-header">
           <div>
             <div class="card-firm">Dervisevic Injury Law</div>
@@ -648,7 +684,7 @@ clients and anyone seeking a highly personal experience.</p>
       </div>
 
       <!-- 8. DE CASTROVERDE -->
-      <div class="attorney-card" data-tags="spanish high-value">
+      <div class="attorney-card" data-tags="spanish high-value" data-iyc="4.7" data-recovered="300" data-google="4.7">
         <div class="card-header">
           <div>
             <div class="card-firm">De Castroverde Law Group</div>
@@ -694,7 +730,7 @@ deep community roots.</p>
       </div>
 
       <!-- 9. HWANG LAW GROUP -->
-      <div class="attorney-card" data-tags="asian women-led boutique">
+      <div class="attorney-card" data-tags="asian women-led boutique" data-iyc="4.3" data-recovered="15" data-google="4.9">
         <div class="card-header">
           <div>
             <div class="card-firm">Hwang Law Group</div>
@@ -740,7 +776,7 @@ choice for Mandarin-speaking accident victims in Las Vegas.</p>
       </div>
 
       <!-- 10. MICHAEL HUA -->
-      <div class="attorney-card" data-tags="asian boutique">
+      <div class="attorney-card" data-tags="asian boutique" data-iyc="4.2" data-recovered="10" data-google="5.0">
         <div class="card-header">
           <div>
             <div class="card-firm">Michael Hua Injury Law</div>
@@ -782,6 +818,300 @@ community.</p>
         <div class="card-footer">
           <a href="https://www.michaelhua.com/" target="_blank" class="review-link">🌐 Website</a>
           <a href="https://www.yelp.com/biz/michael-hua-injury-law-las-vegas" target="_blank" class="review-link">⭐ Yelp</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 11. ED BERNSTEIN -->
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.5" data-recovered="200" data-google="4.5">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Ed Bernstein &amp; Associates</div>
+            <div class="card-attorney">Ed Bernstein, Esq.</div>
+          </div>
+          <span class="card-badge">40+ Year Icon</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Personal Injury</span>
+          <span class="tag">Wrongful Death</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">One of Las Vegas's most recognized personal injury attorneys, Ed Bernstein has been fighting for Nevada accident victims for over four decades. His 1-800-WIN-WIN-1 number is synonymous with PI law in the valley. A high-volume firm with extensive TV and media presence — and the brand recognition that moves insurers.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>40+ years of Nevada PI experience</li>
+                <li>Massive brand — insurers know the name</li>
+                <li>Full-service PI across all accident types</li>
+                <li>Large team &amp; resources for complex cases</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Very high case volume — personal access varies</li>
+                <li>Large firm model — may feel less boutique</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.edbernstein.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.google.com/search?q=Ed+Bernstein+Associates+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 12. HIGH STAKES INJURY LAW -->
+      <div class="attorney-card" data-tags="high-value boutique" data-iyc="4.4" data-recovered="80" data-google="4.8">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">High Stakes Injury Law</div>
+            <div class="card-attorney">Las Vegas Trial Team</div>
+          </div>
+          <span class="card-badge">Trial-First Firm</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Serious Injuries</span>
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Wrongful Death</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">A trial-focused firm that takes high-value cases seriously. High Stakes Injury Law builds every case as if it's going to trial — a strategy that consistently produces stronger settlements and verdicts. Aggressive, prepared, and known for going the distance when insurers lowball.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Trial-first mindset drives better settlements</li>
+                <li>Strong for serious and catastrophic injury cases</li>
+                <li>Aggressive negotiation posture</li>
+                <li>High client satisfaction ratings</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Selective — focuses on significant injury cases</li>
+                <li>Smaller firm — limited concurrent case capacity</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.google.com/search?q=High+Stakes+Injury+Law+Las+Vegas" target="_blank" class="review-link">🌐 Search</a>
+          <a href="https://www.google.com/search?q=High+Stakes+Injury+Law+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 13. BATTLE BORN INJURY LAWYERS -->
+      <div class="attorney-card" data-tags="high-value boutique" data-iyc="4.3" data-recovered="50" data-google="4.9">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Battle Born Injury Lawyers</div>
+            <div class="card-attorney">Nevada-Based Trial Team</div>
+          </div>
+          <span class="card-badge">Nevada-Born</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Personal Injury</span>
+          <span class="tag">Slip &amp; Fall</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Born in Nevada, built for Nevada. Battle Born Injury Lawyers combines deep local knowledge with a fighter's mentality. Named after Nevada's official state motto, this firm approaches every case with the same determination — you deserve maximum compensation, and they won't stop until you get it.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Deep Nevada-specific legal knowledge</li>
+                <li>Excellent Google reviews &amp; client feedback</li>
+                <li>Personalized attention for each client</li>
+                <li>Won't fold to early lowball insurance offers</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Boutique size — fewer staff for mass tort cases</li>
+                <li>Smaller recovery history than major legacy firms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.google.com/search?q=Battle+Born+Injury+Lawyers+Las+Vegas" target="_blank" class="review-link">🌐 Search</a>
+          <a href="https://www.google.com/search?q=Battle+Born+Injury+Lawyers+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 14. ACE LAW GROUP -->
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.2" data-recovered="30" data-google="4.7">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Ace Law Group</div>
+            <div class="card-attorney">Las Vegas PI Team</div>
+          </div>
+          <span class="card-badge">Full-Service PI</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Motorcycle</span>
+          <span class="tag">Premises Liability</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Ace Law Group handles the full spectrum of personal injury cases in Las Vegas, with a strong emphasis on client communication and case transparency. Known for keeping clients informed at every step and pursuing maximum compensation with a methodical, evidence-driven approach.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Strong client communication reputation</li>
+                <li>Handles diverse PI case types</li>
+                <li>Evidence-driven, methodical approach</li>
+                <li>Solid Google and Yelp ratings</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Smaller recovery totals than legacy mega-firms</li>
+                <li>Less brand recognition than 40-year veterans</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.google.com/search?q=Ace+Law+Group+Las+Vegas" target="_blank" class="review-link">🌐 Search</a>
+          <a href="https://www.google.com/search?q=Ace+Law+Group+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 15. MORRIS INJURY LAW -->
+      <div class="attorney-card" data-tags="boutique" data-iyc="4.3" data-recovered="40" data-google="4.8">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Morris Injury Law</div>
+            <div class="card-attorney">Las Vegas Personal Injury</div>
+          </div>
+          <span class="card-badge">Client-First</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Personal Injury</span>
+          <span class="tag">Wrongful Death</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Morris Injury Law is built around one principle: clients come first. A boutique firm that takes fewer cases to ensure every client receives dedicated attention from their attorney — not a paralegal. Particularly well-regarded for responsiveness and transparent communication throughout the case process.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Direct attorney access — small caseload model</li>
+                <li>Exceptional client communication ratings</li>
+                <li>Transparent and honest case assessments</li>
+                <li>Strong Google review scores</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Boutique capacity — may not accept all case types</li>
+                <li>Smaller total recovery history vs. major firms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.google.com/search?q=Morris+Injury+Law+Las+Vegas" target="_blank" class="review-link">🌐 Search</a>
+          <a href="https://www.google.com/search?q=Morris+Injury+Law+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 16. BENSON & BINGHAM -->
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.6" data-recovered="300" data-google="4.7">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">Benson &amp; Bingham</div>
+            <div class="card-attorney">Ben Bingham &amp; Craig Bingham</div>
+          </div>
+          <span class="card-badge">$300M+ Recovered</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Catastrophic Injury</span>
+          <span class="tag">Wrongful Death</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">One of Las Vegas's most established personal injury firms, with hundreds of millions recovered for Nevada accident victims. Benson &amp; Bingham combines decades of courtroom experience with genuine client-centered representation — known for both results and the personal attention they bring to every case.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>$300M+ recovered for Nevada clients</li>
+                <li>Decades of combined trial experience</li>
+                <li>Strong reputation with insurance adjusters</li>
+                <li>Handles catastrophic and wrongful death cases</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Larger caseload — associate handling possible</li>
+                <li>Best suited for significant injury cases</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.bensonbingham.com/" target="_blank" class="review-link">🌐 Website</a>
+          <a href="https://www.google.com/search?q=Benson+Bingham+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
+          <a href="#contact" class="consult-btn">Get Matched</a>
+        </div>
+      </div>
+
+      <!-- 17. H&P LAW -->
+      <div class="attorney-card" data-tags="high-value" data-iyc="4.4" data-recovered="100" data-google="4.6">
+        <div class="card-header">
+          <div>
+            <div class="card-firm">H&amp;P Law</div>
+            <div class="card-attorney">Las Vegas Personal Injury</div>
+          </div>
+          <span class="card-badge">Trial Ready</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Car Accidents</span>
+          <span class="tag">Truck Accidents</span>
+          <span class="tag">Serious Injuries</span>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">H&amp;P Law brings a litigation-first mindset to personal injury representation in Las Vegas. With a focus on serious injury and high-value cases, the firm is known for thorough case preparation and a willingness to take on insurers in court. $100M+ recovered for Nevada accident victims.</p>
+          <div class="sw-grid">
+            <div class="sw-box strengths">
+              <span class="sw-label">✦ Strengths</span>
+              <ul class="sw-list">
+                <li>Litigation-first approach — built for trial</li>
+                <li>$100M+ in total recoveries</li>
+                <li>Strong for truck and serious injury cases</li>
+                <li>Thorough case preparation &amp; investigation</li>
+              </ul>
+            </div>
+            <div class="sw-box weaknesses">
+              <span class="sw-label">✦ Considerations</span>
+              <ul class="sw-list">
+                <li>Selective — focuses on higher-value cases</li>
+                <li>Smaller profile than the largest LV firms</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="https://www.google.com/search?q=H%26P+Law+Las+Vegas" target="_blank" class="review-link">🌐 Search</a>
+          <a href="https://www.google.com/search?q=H%26P+Law+Las+Vegas+reviews" target="_blank" class="review-link">⭐ Reviews</a>
           <a href="#contact" class="consult-btn">Get Matched</a>
         </div>
       </div>
@@ -1071,6 +1401,46 @@ never by clients.</div>
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  // Capture original card order for default sort
+  document.querySelectorAll('.attorney-card').forEach((card, i) => { card.dataset.order = i; });
+
+  // Inject IYC score tag into each card's tag section
+  document.querySelectorAll('.attorney-card[data-iyc]').forEach(card => {
+    const tagsDiv = card.querySelector('.card-tags');
+    if (tagsDiv) {
+      const tag = document.createElement('span');
+      tag.className = 'tag iyc-score-tag';
+      tag.textContent = 'IYC \u2605 ' + card.dataset.iyc;
+      tagsDiv.appendChild(tag);
+    }
+  });
+
+  // Sort cards by criterion
+  function sortCards(criterion) {
+    const grid = document.getElementById('attorneysGrid');
+    const cards = Array.from(grid.querySelectorAll('.attorney-card'));
+    if (criterion === 'default') {
+      cards.sort((a, b) => parseInt(a.dataset.order) - parseInt(b.dataset.order));
+    } else {
+      cards.sort((a, b) => parseFloat(b.dataset[criterion] || 0) - parseFloat(a.dataset[criterion] || 0));
+    }
+    cards.forEach(card => grid.appendChild(card));
+    // Re-apply active filter after sort
+    const activeBtn = document.querySelector('.filter-btn.active');
+    if (activeBtn) {
+      const tag = activeBtn.textContent.trim().toLowerCase().replace(/[^a-z-]/g, '');
+      const dataTag = activeBtn.getAttribute('onclick').match(/'([^']+)'/)?.[1] || 'all';
+      document.querySelectorAll('.attorney-card').forEach(card => {
+        if (dataTag === 'all') {
+          card.style.display = '';
+        } else {
+          const tags = card.dataset.tags || '';
+          card.style.display = tags.includes(dataTag) ? '' : 'none';
+        }
+      });
+    }
+  }
 </script>
 
 
