@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>In Your Corner Accident Consulting | Find the Right Attorney in Las Vegas</title>
 <link href="index_files/css2.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTLSeB68ARYJipY1SQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
   :root {
     --navy-deep: #04070F;
@@ -1125,9 +1126,9 @@ community.</p>
   <div class="section-inner">
     <div class="section-eyebrow">Las Vegas Coverage</div>
     <h2 class="section-title gold-text">Find an Attorney Near You</h2>
-    <p class="section-sub">17 vetted firms across Las Vegas — click any location to learn more</p>
+    <p class="section-sub">17 vetted firms across Las Vegas — click any marker to learn more</p>
 
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108741!2d-115.1398!3d36.1699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80beb782a4f57dd1%3A0x3acba5eba66a5f0c!2sLas%20Vegas%2C%20NV!5e0!3m2!1sen!2sus!4v1" width="100%" height="500" style="border:1px solid rgba(212,175,55,0.2);filter:invert(90%) hue-rotate(180deg);display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div id="leaflet-map" style="height:550px;width:100%;background:#04070F;border:1px solid rgba(212,175,55,0.3);"></div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:32px;">
 
@@ -1502,6 +1503,21 @@ never by clients.</div>
     });
   });
 
+  // Scroll to attorney card by firm name
+  function scrollToCard(firmName) {
+    const cards = document.querySelectorAll('.attorney-card');
+    for (const card of cards) {
+      const firmEl = card.querySelector('.card-firm');
+      if (firmEl && firmEl.textContent.trim() === firmName) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.style.transition = 'border-color 0.3s';
+        card.style.borderColor = 'rgba(212,175,55,0.7)';
+        setTimeout(() => { card.style.borderColor = ''; }, 2000);
+        break;
+      }
+    }
+  }
+
   // Capture original card order for default sort
   document.querySelectorAll('.attorney-card').forEach((card, i) => { card.dataset.order = i; });
 
@@ -1543,5 +1559,72 @@ never by clients.</div>
   }
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+(function() {
+  var mapEl = document.getElementById('leaflet-map');
+  if (!mapEl) return;
+
+  var map = L.map('leaflet-map', {
+    center: [36.1300, -115.2200],
+    zoom: 11,
+    zoomControl: true,
+    attributionControl: true
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  var goldIcon = L.divIcon({
+    className: '',
+    html: '<div style="font-size:26px;line-height:1;color:#D4AF37;text-shadow:0 0 10px rgba(212,175,55,0.7),0 0 20px rgba(212,175,55,0.4);cursor:pointer;user-select:none;">&#9733;</div>',
+    iconSize: [26, 26],
+    iconAnchor: [13, 13],
+    popupAnchor: [0, -16]
+  });
+
+  var firms = [
+    { name: 'Ladah Law Firm',               iyc: 4.9, lat: 36.1648, lng: -115.1462 },
+    { name: 'Shook & Stone',                iyc: 4.6, lat: 36.1624, lng: -115.1469 },
+    { name: 'Richard Harris Law Firm',      iyc: 4.5, lat: 36.1612, lng: -115.1469 },
+    { name: 'Battle Born Injury Lawyers',   iyc: 4.3, lat: 36.1661, lng: -115.1444 },
+    { name: 'H&P Law',                      iyc: 4.4, lat: 36.1597, lng: -115.1411 },
+    { name: 'Naqvi Injury Law',             iyc: 4.7, lat: 36.1164, lng: -115.2991 },
+    { name: 'De Castroverde Law Group',     iyc: 4.7, lat: 36.1567, lng: -115.1361 },
+    { name: 'High Stakes Injury Law',       iyc: 4.4, lat: 36.1692, lng: -115.2236 },
+    { name: 'Hwang Law Group',              iyc: 4.3, lat: 36.1370, lng: -115.2243 },
+    { name: 'Michael Hua Injury Law',       iyc: 4.2, lat: 36.1250, lng: -115.2260 },
+    { name: 'Ace Law Group',                iyc: 4.2, lat: 36.1259, lng: -115.2331 },
+    { name: 'Morris Injury Law',            iyc: 4.3, lat: 36.1304, lng: -115.2604 },
+    { name: 'Benson & Bingham',             iyc: 4.6, lat: 36.1570, lng: -115.3445 },
+    { name: 'Ed Bernstein & Associates',    iyc: 4.5, lat: 36.1583, lng: -115.3298 },
+    { name: 'Jack Bernstein Injury Lawyers',iyc: 4.8, lat: 36.0566, lng: -115.1073 },
+    { name: 'Meesha Moulton Law',           iyc: 4.4, lat: 36.0670, lng: -115.2477 },
+    { name: 'Dervisevic Injury Law',        iyc: 4.6, lat: 36.1583, lng: -115.3310 }
+  ];
+
+  firms.forEach(function(f) {
+    var safeClick = f.name.replace(/'/g, "\\'");
+    var popupHTML =
+      '<div style="font-family:\'Montserrat\',sans-serif;min-width:190px;padding:4px 2px;">' +
+        '<div style="font-family:\'Cinzel\',serif;font-size:12px;font-weight:700;color:#09112B;margin-bottom:5px;line-height:1.3;">' + f.name + '</div>' +
+        '<div style="font-size:11px;color:#8B6010;margin-bottom:10px;">IYC &#9733; ' + f.iyc + ' / 5.0</div>' +
+        '<button onclick="scrollToCard(\'' + safeClick + '\')" style="background:linear-gradient(135deg,#F5E070,#D4AF37);color:#04070F;border:none;padding:7px 0;font-family:\'Montserrat\',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;width:100%;">View Profile &#8594;</button>' +
+      '</div>';
+    L.marker([f.lat, f.lng], { icon: goldIcon })
+      .addTo(map)
+      .bindPopup(popupHTML, { maxWidth: 220, className: 'iyac-popup' });
+  });
+})();
+</script>
+<style>
+  .iyac-popup .leaflet-popup-content-wrapper { background:#fff; border-radius:0; box-shadow:0 6px 28px rgba(0,0,0,0.55); padding:0; }
+  .iyac-popup .leaflet-popup-content { margin:14px 16px; }
+  .iyac-popup .leaflet-popup-tip { background:#fff; }
+  .iyac-popup .leaflet-popup-close-button { color:#8B6010 !important; font-size:16px !important; }
+</style>
 
 </body></html>
