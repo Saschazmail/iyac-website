@@ -117,7 +117,12 @@
   .sort-select option { background:var(--navy); }
 
   /* IYC LEGEND */
-  .iyc-legend { background:rgba(212,175,55,0.04); border:1px solid rgba(212,175,55,0.15); padding:18px 22px; margin-bottom:32px; }
+  .iyc-toggle-btn { background:none; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:rgba(212,175,55,0.6); padding:0; margin-bottom:20px; transition:color 0.2s; }
+  .iyc-toggle-btn:hover { color:var(--gold); }
+  .iyc-toggle-btn .iyc-chevron { font-size:12px; transition:transform 0.3s; display:inline-block; }
+  .iyc-toggle-btn.open .iyc-chevron { transform:rotate(180deg); }
+  .iyc-legend { background:rgba(212,175,55,0.04); border:1px solid rgba(212,175,55,0.15); padding:18px 22px; margin-bottom:32px; display:none; }
+  .iyc-legend.open { display:block; }
   .iyc-legend-title { font-family:'Cinzel',serif; font-size:10px; font-weight:700; letter-spacing:0.15em; color:var(--gold); margin-bottom:8px; }
   .iyc-legend-desc { font-size:11px; line-height:1.7; color:var(--white-dim); margin-bottom:10px; }
   .iyc-legend-desc strong { color:rgba(212,175,55,0.85); }
@@ -375,7 +380,10 @@
       </select>
     </div>
 
-    <div class="iyc-legend">
+    <button class="iyc-toggle-btn" id="iycToggleBtn" onclick="toggleIycLegend()">
+      ★ More about the IYC Score <span class="iyc-chevron">▾</span>
+    </button>
+    <div class="iyc-legend" id="iycLegend">
       <div class="iyc-legend-title">★ About the IYC Score</div>
       <p class="iyc-legend-desc">The <strong>In Your Corner (IYC) Score</strong> is a composite rating out of 5.0, calculated from three independent attorney credentialing systems:</p>
       <div class="iyc-sources">
@@ -1524,6 +1532,14 @@ never by clients.</div>
       if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  // IYC legend toggle
+  function toggleIycLegend() {
+    const btn = document.getElementById('iycToggleBtn');
+    const legend = document.getElementById('iycLegend');
+    btn.classList.toggle('open');
+    legend.classList.toggle('open');
+  }
 
   // Scroll to attorney card by firm name
   function scrollToCard(firmName) {
