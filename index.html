@@ -1613,27 +1613,37 @@ var goldIcon = L.divIcon({
 });
 
 var firms = [
-  ["Ladah Law Firm", 36.1648, -115.1462, "⭐⭐⭐⭐⭐"],
-  ["Shook & Stone", 36.1624, -115.1469, "⭐⭐⭐⭐⭐"],
-  ["Richard Harris Law", 36.1612, -115.1469, "⭐⭐⭐⭐"],
-  ["Battle Born Injury", 36.1661, -115.1444, "⭐⭐⭐⭐⭐"],
-  ["H&P Law", 36.1597, -115.1411, "⭐⭐⭐⭐"],
-  ["Naqvi Injury Law", 36.1164, -115.2991, "⭐⭐⭐⭐⭐"],
-  ["De Castroverde Law", 36.1567, -115.1361, "⭐⭐⭐⭐⭐"],
-  ["High Stakes Injury", 36.1692, -115.2236, "⭐⭐⭐"],
-  ["Hwang Law Group", 36.1370, -115.2243, "⭐⭐⭐⭐"],
-  ["Michael Hua Injury", 36.1250, -115.2260, "⭐⭐⭐"],
-  ["Ace Law Group", 36.1259, -115.2331, "⭐⭐⭐"],
-  ["Morris Injury Law", 36.1304, -115.2604, "⭐⭐⭐⭐"],
-  ["Benson & Bingham", 36.1570, -115.3445, "⭐⭐⭐⭐⭐"],
-  ["Ed Bernstein", 36.1583, -115.3298, "⭐⭐⭐⭐"],
-  ["Jack Bernstein", 36.0566, -115.1073, "⭐⭐⭐⭐⭐"],
-  ["Meesha Moulton Law", 36.0670, -115.2477, "⭐⭐⭐⭐"]
+  ["Ladah Law Firm", 36.1648, -115.1462, "⭐⭐⭐⭐⭐", "517 S 3rd St, Las Vegas"],
+  ["Shook & Stone - Downtown", 36.1624, -115.1469, "⭐⭐⭐⭐⭐", "710 S 4th St, Las Vegas"],
+  ["Shook & Stone - Southwest", 36.0846, -115.2992, "⭐⭐⭐⭐⭐", "9455 W Russell Rd, Las Vegas"],
+  ["Richard Harris - Downtown", 36.1612, -115.1469, "⭐⭐⭐⭐", "801 S 4th St, Las Vegas"],
+  ["Richard Harris - Summerlin", 36.1898, -115.3014, "⭐⭐⭐⭐", "1645 Village Center Cir, Las Vegas"],
+  ["Richard Harris - Henderson", 36.0187, -115.1000, "⭐⭐⭐⭐", "2600 Paseo Verde Pkwy, Henderson"],
+  ["Battle Born Injury", 36.1661, -115.1444, "⭐⭐⭐⭐⭐", "400 S 4th St, Las Vegas"],
+  ["H&P Law", 36.1597, -115.1411, "⭐⭐⭐⭐", "710 S 9th St, Las Vegas"],
+  ["Naqvi Injury - West", 36.1164, -115.2991, "⭐⭐⭐⭐⭐", "9500 W Flamingo Rd, Las Vegas"],
+  ["Naqvi Injury - North", 36.2883, -115.2863, "⭐⭐⭐⭐⭐", "7010 N Durango Dr, Las Vegas"],
+  ["Naqvi Injury - Henderson", 36.0281, -115.0481, "⭐⭐⭐⭐⭐", "19 S Stephanie St, Henderson"],
+  ["De Castroverde - Maryland", 36.1567, -115.1361, "⭐⭐⭐⭐⭐", "1149 S Maryland Pkwy, Las Vegas"],
+  ["De Castroverde - Rampart", 36.1673, -115.2863, "⭐⭐⭐⭐⭐", "410 S Rampart Blvd, Las Vegas"],
+  ["High Stakes Injury", 36.1692, -115.2236, "⭐⭐⭐", "320 S Jones Blvd, Las Vegas"],
+  ["Hwang Law Group", 36.1370, -115.2243, "⭐⭐⭐⭐", "2880 S Jones Blvd, Las Vegas"],
+  ["Michael Hua Injury", 36.1250, -115.2260, "⭐⭐⭐", "6145 W Spring Mountain Rd, Las Vegas"],
+  ["Ace Law Group", 36.1259, -115.2331, "⭐⭐⭐", "6480 W Spring Mountain Rd, Las Vegas"],
+  ["Morris Injury Law", 36.1304, -115.2604, "⭐⭐⭐⭐", "3230 S Buffalo Dr, Las Vegas"],
+  ["Benson & Bingham - Summerlin", 36.1570, -115.3445, "⭐⭐⭐⭐⭐", "11441 Allerton Park Dr, Las Vegas"],
+  ["Benson & Bingham - Downtown", 36.1603, -115.1395, "⭐⭐⭐⭐⭐", "626 S 10th St, Las Vegas"],
+  ["Benson & Bingham - Henderson", 36.0214, -115.1168, "⭐⭐⭐⭐⭐", "9230 S Eastern Ave, Las Vegas"],
+  ["Ed Bernstein - Summerlin", 36.1583, -115.3298, "⭐⭐⭐⭐", "10801 W Charleston Blvd, Las Vegas"],
+  ["Ed Bernstein - Downtown", 36.1660, -115.1445, "⭐⭐⭐⭐", "400 S 4th St, Las Vegas"],
+  ["Ed Bernstein - Henderson", 36.0546, -115.0501, "⭐⭐⭐⭐", "1489 W Warm Springs Rd, Henderson"],
+  ["Jack Bernstein", 36.0566, -115.1073, "⭐⭐⭐⭐⭐", "3097 E Warm Springs Rd, Las Vegas"],
+  ["Meesha Moulton Law", 36.0670, -115.2477, "⭐⭐⭐⭐", "7160 Rafael Rivera Way, Las Vegas"]
 ];
 
 firms.forEach(function(f) {
   L.marker([f[1], f[2]], {icon: goldIcon})
-    .bindPopup('<div style="font-family:Cinzel,serif;color:#09112B;"><strong>' + f[0] + '</strong><br>IYC Score: ' + f[3] + '<br><a href=#attorneys style="color:#8B6010;font-weight:700;">View Profile ↓</a></div>')
+    .bindPopup('<div style="font-family:sans-serif;color:#09112B;min-width:160px"><strong style="font-size:13px">' + f[0] + '</strong><br><span style="color:#8B6010">' + f[3] + '</span><br><small style="color:#666;font-size:10px">' + f[4] + '</small><br><br><a href="#attorneys" style="color:#8B6010;font-weight:700;text-decoration:none">View Profile ↓</a></div>')
     .addTo(map);
 });
 </script>
