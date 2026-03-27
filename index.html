@@ -119,7 +119,7 @@
 
   /* HOW WE HELP */
   #how-we-help{background:linear-gradient(180deg,var(--navy-deep) 0%,#060D20 100%)}
-  .help-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;margin-bottom:48px}
+  .help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:48px}
   .help-card{background:rgba(9,17,43,0.9);border:1px solid rgba(212,175,55,0.1);padding:32px 24px;transition:border-color 0.3s}
   .help-card:hover{border-color:rgba(212,175,55,0.3)}
   .help-icon-row{display:flex;align-items:center;gap:12px;margin-bottom:16px}
@@ -153,44 +153,69 @@
   .results-count{font-size:10px;color:var(--white-dim);margin-bottom:16px}
   .results-count span{color:var(--gold);font-weight:700}
 
-  /* ══ ATTORNEY CARDS — COMPACT HOVER-EXPAND ══ */
-  .attorneys-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
-  .attorney-card{background:linear-gradient(145deg,rgba(15,26,62,0.9),rgba(9,17,43,0.8));border:1px solid rgba(212,175,55,0.12);overflow:hidden;transition:all 0.35s ease;position:relative;cursor:pointer}
-  .attorney-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform 0.35s}
+  /* ══ ATTORNEY DIRECTORY — SOPHISTICATED 3-COL GRID ══ */
+  .attorneys-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+
+  /* Gold divider lines between cards */
+  .attorneys-grid{border:1px solid rgba(212,175,55,0.15)}
+  .attorney-card{background:linear-gradient(160deg,rgba(12,20,50,0.95),rgba(6,11,28,0.98));border-right:1px solid rgba(212,175,55,0.12);border-bottom:1px solid rgba(212,175,55,0.12);overflow:hidden;transition:all 0.4s ease;position:relative;cursor:pointer}
+  .attorney-card:nth-child(3n){border-right:none}
+
+  /* Decorative corner accent on hover */
+  .attorney-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.8),rgba(245,224,112,1),rgba(212,175,55,0.8),transparent);transform:scaleX(0);transition:transform 0.4s ease;z-index:2}
+  .attorney-card::after{content:'✦';position:absolute;top:12px;right:14px;font-size:8px;color:rgba(212,175,55,0.15);transition:all 0.4s ease}
   .attorney-card:hover::before{transform:scaleX(1)}
-  .attorney-card:hover{border-color:rgba(212,175,55,0.45);box-shadow:0 20px 60px rgba(0,0,0,0.5);z-index:10}
-  .card-summary{padding:16px 18px;display:flex;align-items:center;gap:12px}
-  .card-stars-col{display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0;width:44px}
-  .card-stars-col .score-stars{font-size:10px;letter-spacing:0px;line-height:1}
-  .card-stars-col .iyc-label{font-size:5.5px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(212,175,55,0.35);text-align:center}
-  .card-main-col{flex:1;min-width:0}
-  .card-firm{font-family:'Cinzel',serif;font-size:12.5px;font-weight:700;color:white;letter-spacing:0.04em;line-height:1.2;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .card-attorney{font-size:10px;color:rgba(212,175,55,0.6);font-family:'Cormorant Garamond',serif;font-style:italic;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .card-badge{background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.2);padding:2px 7px;font-size:6.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);display:inline-block}
-  .card-expand-hint{font-size:6.5px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,55,0.25);padding:0 18px 8px;transition:color 0.2s}
-  .attorney-card:hover .card-expand-hint{color:rgba(212,175,55,0.55)}
-  .card-detail{max-height:0;overflow:hidden;transition:max-height 0.4s ease,opacity 0.3s ease;opacity:0;border-top:1px solid rgba(212,175,55,0.08)}
-  .attorney-card:hover .card-detail{max-height:700px;opacity:1}
-  .card-recovery{padding:12px 18px 0;font-size:10px;font-weight:600;color:rgba(255,255,255,0.35);letter-spacing:0.1em}
-  .card-recovery span{color:rgba(212,175,55,0.65);font-weight:700}
-  .card-tags{display:flex;flex-wrap:wrap;gap:4px;padding:8px 18px 0}
-  .tag{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);padding:2px 7px;font-size:7px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:rgba(255,255,255,0.38)}
-  .tag.lang{border-color:rgba(100,200,255,0.18);color:rgba(100,200,255,0.65);background:rgba(100,200,255,0.04)}
-  .card-body{padding:12px 18px}
-  .card-desc{font-size:11px;line-height:1.75;color:var(--white-dim);margin-bottom:12px}
-  .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
-  .sw-box{padding:8px 10px}
-  .sw-box.strengths{background:rgba(34,197,94,0.04);border:1px solid rgba(34,197,94,0.13)}
-  .sw-box.weaknesses{background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.1)}
-  .sw-label{font-size:7px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:6px;display:block}
-  .sw-box.strengths .sw-label{color:rgba(34,197,94,0.65)}
-  .sw-box.weaknesses .sw-label{color:rgba(239,68,68,0.55)}
+  .attorney-card:hover::after{color:rgba(212,175,55,0.6);transform:rotate(45deg)}
+  .attorney-card:hover{background:linear-gradient(160deg,rgba(18,28,68,0.98),rgba(10,18,42,1));box-shadow:inset 0 0 60px rgba(212,175,55,0.03),0 0 40px rgba(0,0,0,0.6);z-index:5}
+
+  /* COMPACT SUMMARY */
+  .card-summary{padding:20px 22px 14px;position:relative}
+  .card-firm{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.92);letter-spacing:0.04em;line-height:1.25;margin-bottom:3px}
+  .card-attorney{font-size:11px;color:rgba(212,175,55,0.55);font-family:'Cormorant Garamond',serif;font-style:italic;margin-bottom:8px}
+  .card-summary-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .score-stars{font-size:11px;letter-spacing:1px;color:#D4AF37}
+  .card-badge{background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.18);padding:2px 8px;font-size:6.5px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(212,175,55,0.8);display:inline-block}
+
+  /* Gold separator line */
+  .card-separator{height:1px;margin:0 22px;background:linear-gradient(90deg,transparent,rgba(212,175,55,0.2),rgba(212,175,55,0.4),rgba(212,175,55,0.2),transparent)}
+
+  /* EXPAND HINT */
+  .card-expand-hint{font-size:6px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(212,175,55,0.2);padding:8px 22px;transition:color 0.3s;text-align:right}
+  .attorney-card:hover .card-expand-hint{color:rgba(212,175,55,0.5)}
+
+  /* EXPANDED DETAIL */
+  .card-detail{max-height:0;overflow:hidden;transition:max-height 0.45s ease,opacity 0.35s ease;opacity:0}
+  .attorney-card:hover .card-detail{max-height:800px;opacity:1}
+
+  /* HIGHLIGHTS — key facts row */
+  .card-highlights{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(212,175,55,0.08);margin:0 0 0 0}
+  .highlight-item{background:rgba(6,11,28,0.9);padding:10px 14px}
+  .highlight-label{font-size:6px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:rgba(212,175,55,0.4);margin-bottom:3px}
+  .highlight-value{font-family:'Cinzel',serif;font-size:11px;font-weight:700;color:rgba(212,175,55,0.85)}
+
+  .card-recovery{display:none} /* replaced by highlights */
+  .card-tags{display:flex;flex-wrap:wrap;gap:4px;padding:12px 22px 0}
+  .tag{background:rgba(255,255,255,0.03);border:1px solid rgba(212,175,55,0.1);padding:2px 8px;font-size:6.5px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(212,175,55,0.45)}
+  .tag.lang{border-color:rgba(100,200,255,0.15);color:rgba(130,210,255,0.6);background:rgba(100,200,255,0.03)}
+
+  .card-body{padding:14px 22px 12px}
+  .card-desc{font-size:11.5px;line-height:1.8;color:rgba(255,255,255,0.65);margin-bottom:14px}
+
+  .sw-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
+  .sw-box{padding:10px 12px;border-radius:0}
+  .sw-box.strengths{background:rgba(212,175,55,0.04);border:1px solid rgba(212,175,55,0.14)}
+  .sw-box.weaknesses{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07)}
+  .sw-label{font-size:6.5px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:7px;display:block}
+  .sw-box.strengths .sw-label{color:rgba(212,175,55,0.6)}
+  .sw-box.weaknesses .sw-label{color:rgba(255,255,255,0.3)}
   .sw-list{list-style:none}
-  .sw-list li{font-size:9.5px;line-height:1.5;color:rgba(255,255,255,0.5);padding:2px 0 2px 12px;position:relative}
-  .sw-list li::before{content:'';position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%}
-  .sw-box.strengths .sw-list li::before{background:rgba(34,197,94,0.55)}
-  .sw-box.weaknesses .sw-list li::before{background:rgba(239,68,68,0.45)}
-  .card-footer{padding:0 18px 14px;display:flex;gap:6px;flex-wrap:wrap}
+  .sw-list li{font-size:10px;line-height:1.6;color:rgba(255,255,255,0.5);padding:3px 0 3px 14px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04)}
+  .sw-list li:last-child{border-bottom:none}
+  .sw-list li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:1px}
+  .sw-box.strengths .sw-list li::before{background:rgba(212,175,55,0.6)}
+  .sw-box.weaknesses .sw-list li::before{background:rgba(255,255,255,0.2)}
+
+  .card-footer{padding:0 22px 18px;display:flex}
   .review-link{display:none}
   .consult-btn{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,var(--gold-bright),var(--gold));padding:5px 14px;font-size:8.5px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy-deep);text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s}
   .consult-btn:hover{opacity:0.85}
@@ -250,6 +275,12 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
   @keyframes scrollPulse{0%,100%{opacity:0.4}50%{opacity:0.9}}
 
+  @media(max-width:1024px){
+    .attorneys-grid{grid-template-columns:repeat(2,1fr)}
+    .attorney-card:nth-child(3n){border-right:1px solid rgba(212,175,55,0.12)}
+    .attorney-card:nth-child(2n){border-right:none}
+    .help-grid{grid-template-columns:repeat(3,1fr)}
+  }
   @media(max-width:768px){
     nav{padding:0 18px}.nav-links{display:none}
     section{padding:56px 18px}
@@ -260,6 +291,9 @@
     .footer-legal{text-align:left}
     .trust-bar{padding:16px;gap:20px}
     .controls-bar{flex-direction:column;align-items:flex-start}
+    .attorneys-grid{grid-template-columns:1fr}
+    .attorney-card:nth-child(3n),.attorney-card:nth-child(2n){border-right:none}
+    .help-grid{grid-template-columns:repeat(2,1fr)}
   }
 </style>
 </head>
@@ -433,21 +467,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 1. LADAH LAW -->
             <div class="attorney-card" data-tags="high-value trial" data-iyc="5" data-recovered="0.4" data-google="4.9">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Ladah Law Firm</div>
+          <div class="card-attorney">Ramzy Ladah, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Ladah Law Firm</div>
-            <div class="card-attorney">Ramzy Ladah, Esq.</div>
             <span class="card-badge">Litigator of the Year</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$400M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$400M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Litigator of the Year</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Avvo 10.0</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Super Lawyers</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Wrongful Death</span><span class="tag">Catastrophic Injury</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -457,21 +497,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 2. SHOOK & STONE -->
             <div class="attorney-card" data-tags="high-value trial" data-iyc="5" data-recovered="1.0" data-google="4.7">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Shook &amp; Stone</div>
+          <div class="card-attorney">Charles Shook &amp; Matthew Stone</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Shook &amp; Stone</div>
-            <div class="card-attorney">Charles Shook &amp; Matthew Stone</div>
             <span class="card-badge">$1B+ Recovered</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$1B+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Elite</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Top Rated</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Avvo 10.0</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Free Consult</div></div>
+          </div>
           <div class="card-tags"><span class="tag">All Accident Types</span><span class="tag">Workers' Comp</span><span class="tag">Wrongful Death</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -481,21 +527,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 3. NAQVI -->
             <div class="attorney-card" data-tags="high-value trial" data-iyc="5" data-recovered="0.15" data-google="4.9">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Naqvi Injury Law</div>
+          <div class="card-attorney">Farhan Naqvi, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Naqvi Injury Law</div>
-            <div class="card-attorney">Farhan Naqvi, Esq.</div>
             <span class="card-badge">Never Lost a Trial</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$150M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$150M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Undefeated Trial</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">#1 Yelp Las Vegas</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">70+ Staff</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Truck Accidents</span><span class="tag">Serious Injuries</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -505,21 +557,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 4. BENSON & BINGHAM -->
             <div class="attorney-card" data-tags="high-value boutique" data-iyc="5" data-recovered="0.6" data-google="4.8">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Benson &amp; Bingham</div>
+          <div class="card-attorney">Joseph Benson &amp; Ben Bingham</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Benson &amp; Bingham</div>
-            <div class="card-attorney">Joseph Benson &amp; Ben Bingham</div>
             <span class="card-badge">$600M+ Recovered</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$600M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Elite</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Top Rated</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Avvo 10.0</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Free Consult</div></div>
+          </div>
           <div class="card-tags"><span class="tag">All PI Cases</span><span class="tag">Casino/Hotel</span><span class="tag">Medical Malpractice</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -529,21 +587,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 5. BATTLE BORN -->
             <div class="attorney-card" data-tags="high-value trial" data-iyc="5" data-recovered="0.1" data-google="4.8">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Battle Born Injury Lawyers</div>
+          <div class="card-attorney">Justin Watkins &amp; Team</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Battle Born Injury Lawyers</div>
-            <div class="card-attorney">Justin Watkins &amp; Team</div>
             <span class="card-badge">AV Preeminent · Avvo 10.0</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$100M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$100M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">AV Preeminent</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Top 10 Nevada</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">85yr Combined</div></div>
+          </div>
           <div class="card-tags"><span class="tag">All Accident Types</span><span class="tag">Catastrophic Injury</span><span class="tag">Birth Injury</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -553,21 +617,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 6. JACK BERNSTEIN -->
             <div class="attorney-card" data-tags="high-value trial" data-iyc="5" data-recovered="0.5" data-google="4.7">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Jack Bernstein Injury Lawyers</div>
+          <div class="card-attorney">Jack Bernstein, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Jack Bernstein Injury Lawyers</div>
-            <div class="card-attorney">Jack Bernstein, Esq.</div>
             <span class="card-badge">Top 100 Trial Lawyers</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$500M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$500M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Top 100 Trial</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">40+ Years</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">AV Preeminent</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Catastrophic Injury</span><span class="tag">Wrongful Death</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -577,21 +647,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 7. DE CASTROVERDE -->
             <div class="attorney-card" data-tags="high-value spanish" data-iyc="5" data-recovered="0.3" data-google="4.8">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">De Castroverde Law Group</div>
+          <div class="card-attorney">Alex &amp; Orlando De Castroverde</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">De Castroverde Law Group</div>
-            <div class="card-attorney">Alex &amp; Orlando De Castroverde</div>
             <span class="card-badge">Hispanic-Owned</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$300M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$300M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Fully Bilingual</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Vegas Chamber 2022</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">35+ Years</div></div>
+          </div>
           <div class="card-tags"><span class="tag">All PI Cases</span><span class="tag lang">🗣 Español</span><span class="tag">Immigration</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -601,21 +677,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 8. VLADANA -->
             <div class="attorney-card" data-tags="boutique women-led" data-iyc="5" data-recovered="0.05" data-google="5.0">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Dervisevic Injury Law</div>
+          <div class="card-attorney">Vladana Dervisevic, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Dervisevic Injury Law</div>
-            <div class="card-attorney">Vladana Dervisevic, Esq.</div>
             <span class="card-badge">Super Lawyers 4x</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>Boutique Firm</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Boutique</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Super Lawyers 4x</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Top 40 Under 40</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Bosnian/Croatian</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag lang">🗣 Bosnian/Croatian</span><span class="tag">Personal Injury</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -625,21 +707,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 9. RICHARD HARRIS -->
             <div class="attorney-card" data-tags="high-value" data-iyc="4" data-recovered="0.5" data-google="4.5">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Richard Harris Law Firm</div>
+          <div class="card-attorney">Richard Harris, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Richard Harris Law Firm</div>
-            <div class="card-attorney">Richard Harris, Esq.</div>
             <span class="card-badge">40+ Years</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$500M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$500M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">40+ Years Nevada</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Highest Billboard</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">All PI Types</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Slip &amp; Fall</span><span class="tag">Motorcycle</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -649,21 +737,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 10. ED BERNSTEIN -->
             <div class="attorney-card" data-tags="high-value" data-iyc="4" data-recovered="0.3" data-google="4.4">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Ed Bernstein &amp; Associates</div>
+          <div class="card-attorney">Edward M. Bernstein, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Ed Bernstein &amp; Associates</div>
-            <div class="card-attorney">Edward M. Bernstein, Esq.</div>
             <span class="card-badge">50 Years · Nevada Icon</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$300M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$500M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">50 Years</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Household Name</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Community Icon</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Workers' Comp</span><span class="tag">All PI Cases</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -673,21 +767,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 11. MEESHA MOULTON -->
             <div class="attorney-card" data-tags="women-led boutique" data-iyc="4" data-recovered="0.02" data-google="4.7">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Meesha Moulton Law</div>
+          <div class="card-attorney">Meesha Moulton, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Meesha Moulton Law</div>
-            <div class="card-attorney">Meesha Moulton, Esq.</div>
             <span class="card-badge">Women-Led · Top 40 Under 40</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>Boutique Firm</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Boutique</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Women-Led</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Catastrophic Cases</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Personal Access</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Personal Attention</span><span class="tag">Top 40 Under 40</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -697,21 +797,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 12. H&P LAW -->
             <div class="attorney-card" data-tags="high-value trial" data-iyc="4" data-recovered="0.2" data-google="4.6">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">H&amp;P Law</div>
+          <div class="card-attorney">Hicks &amp; Brasier / H&amp;P Team</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">H&amp;P Law</div>
-            <div class="card-attorney">Hicks &amp; Brasier / H&amp;P Team</div>
             <span class="card-badge">60+ Yrs Combined Exp</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$200M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Elite</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Top Rated</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Avvo 10.0</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Free Consult</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Wrongful Death</span><span class="tag">Trucking</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -721,21 +827,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 13. HWANG LAW -->
             <div class="attorney-card" data-tags="asian women-led boutique" data-iyc="4" data-recovered="0.01" data-google="4.8">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Hwang Law Group</div>
+          <div class="card-attorney">Tin Hwang, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Hwang Law Group</div>
-            <div class="card-attorney">Tin Hwang, Esq.</div>
             <span class="card-badge">Mandarin-Speaking</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>Boutique Firm</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Boutique</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Mandarin Fluent</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">AIPIA Top 10</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Asian Advocacy</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag lang">🗣 普通话 Mandarin</span><span class="tag">Slip &amp; Fall</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -745,21 +857,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 14. MORRIS INJURY LAW -->
             <div class="attorney-card" data-tags="boutique" data-iyc="4" data-recovered="0.05" data-google="4.9">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Morris Injury Law</div>
+          <div class="card-attorney">Morris Law Team</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Morris Injury Law</div>
-            <div class="card-attorney">Morris Law Team</div>
             <span class="card-badge">Top Yelp Rated</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>Boutique Firm</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Boutique</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">#1 Yelp Service</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Communication Focus</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Responsive</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Client Service Focus</span><span class="tag">Personal Injury</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -769,21 +887,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 15. HIGH STAKES -->
             <div class="attorney-card" data-tags="trial boutique" data-iyc="3" data-recovered="0.1" data-google="4.7">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">High Stakes Injury Law</div>
+          <div class="card-attorney">Scott Poisson, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">High Stakes Injury Law</div>
-            <div class="card-attorney">Scott Poisson, Esq.</div>
             <span class="card-badge">$500M+ Recovered</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$500M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$500M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">800+ 5-Star Reviews</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Trial Ready</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Since 1993</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Trial Focused</span><span class="tag">Truck Accidents</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -793,21 +917,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 16. MICHAEL HUA -->
             <div class="attorney-card" data-tags="asian boutique" data-iyc="3" data-recovered="0.01" data-google="4.8">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Michael Hua Injury Law</div>
+          <div class="card-attorney">Michael Hua, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Michael Hua Injury Law</div>
-            <div class="card-attorney">Michael Hua, Esq.</div>
             <span class="card-badge">Chinese-American · Filipino</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>Boutique Firm</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Boutique</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Chinese & Tagalog</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Insurance Defense BG</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">UNLV Boyd</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag lang">🗣 Chinese / Tagalog</span><span class="tag">Wrongful Death</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -817,21 +947,27 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 17. ACE LAW GROUP -->
             <div class="attorney-card" data-tags="boutique" data-iyc="3" data-recovered="0.05" data-google="4.7">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Ace Law Group</div>
+          <div class="card-attorney">Ace Law Team</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Ace Law Group</div>
-            <div class="card-attorney">Ace Law Team</div>
             <span class="card-badge">Casino/Hotel Specialist</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>Growing Firm</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">Growing</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Casino Specialist</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Insurance Defense BG</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Personal Attention</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Casino/Hotel</span><span class="tag">Personal Attention</span></div>
-          
+          <div class="card-body">
+            <p class="card-desc"></p>
+            
+          </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
       </div>
@@ -841,26 +977,28 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 18. PACIFIC WEST INJURY LAW -->
       <div class="attorney-card" data-tags="boutique trial" data-iyc="4" data-recovered="0.1" data-google="4.9">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Pacific West Injury Law</div>
+          <div class="card-attorney">Kristopher M. Helmick, Esq.</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Pacific West Injury Law</div>
-            <div class="card-attorney">Kristopher M. Helmick, Esq.</div>
             <span class="card-badge">Voted Best Trial Lawyer</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$100M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$100M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">Best Trial Lawyer</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Super Lawyers Rising</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Español</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Truck Accidents</span><span class="tag lang">🗣 Español</span></div>
           <div class="card-body">
             <p class="card-desc">Voted Best Trial & Accident Lawyer in Las Vegas. Founded by Kris Helmick, a former attorney at Nevada's largest firm, with a singular focus on treating every client like family. Known for visiting clients in the hospital and maintaining open communication throughout recovery. Super Lawyers Rising Star recognition. $100M+ recovered.</p>
             <div class="sw-grid">
               <div class="sw-box strengths"><span class="sw-label">✦ Strengths</span><ul class="sw-list"><li>Voted Best Trial Lawyer Las Vegas</li><li>Exceptional client communication & access</li><li>Spanish-speaking staff</li><li>Personal founder involvement in cases</li></ul></div>
               <div class="sw-box weaknesses"><span class="sw-label">✦ Considerations</span><ul class="sw-list"><li>Boutique size — limited simultaneous case capacity</li><li>Smaller total recovery vs. mega firms</li></ul></div>
-            </div>
           </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
@@ -869,26 +1007,28 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 19. CLAGGETT & SYKES -->
       <div class="attorney-card" data-tags="high-value trial" data-iyc="5" data-recovered="2.5" data-google="4.8">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Claggett &amp; Sykes Trial Lawyers</div>
+          <div class="card-attorney">Sean Claggett &amp; William Sykes</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Claggett &amp; Sykes Trial Lawyers</div>
-            <div class="card-attorney">Sean Claggett &amp; William Sykes</div>
             <span class="card-badge">$2.5B+ Recovered</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$2.5B+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$2.5B+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">$951M Verdict</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">Trial Lawyer of Year</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Catastrophic</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Catastrophic Injury</span><span class="tag">Wrongful Death</span><span class="tag">Brain Injury</span></div>
           <div class="card-body">
             <p class="card-desc">One of Nevada's most formidable trial firms with over $2.5 billion recovered. Sean Claggett earned Trial Lawyer of the Year and secured a landmark $951 million medical malpractice verdict — one of the largest in Nevada history. Offices in Las Vegas and Reno. Specializes in catastrophic and complex cases that other firms decline.</p>
             <div class="sw-grid">
               <div class="sw-box strengths"><span class="sw-label">✦ Strengths</span><ul class="sw-list"><li>$2.5B+ total recovered — elite tier</li><li>$951M landmark verdict — trial proven</li><li>Trial Lawyer of the Year recognition</li><li>Takes complex cases others won't</li></ul></div>
               <div class="sw-box weaknesses"><span class="sw-label">✦ Considerations</span><ul class="sw-list"><li>Focus on catastrophic/complex cases — may not suit minor injuries</li><li>High-profile firm — client access may vary</li></ul></div>
-            </div>
           </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
@@ -897,26 +1037,28 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
       <!-- 20. HENNESS & HAIGHT -->
       <div class="attorney-card" data-tags="high-value boutique" data-iyc="5" data-recovered="0.3" data-google="4.9">
         <div class="card-summary">
-          <div class="card-stars-col">
+          <div class="card-firm">Henness &amp; Haight Injury Law</div>
+          <div class="card-attorney">Henness &amp; Haight Team</div>
+          <div class="card-summary-row">
             <span class="score-stars">⭐⭐⭐⭐⭐</span>
-            <span class="iyc-label">IYC Score</span>
-          </div>
-          <div class="card-main-col">
-            <div class="card-firm">Henness &amp; Haight Injury Law</div>
-            <div class="card-attorney">Henness &amp; Haight Team</div>
             <span class="card-badge">NADC Top 1% · AV Highest Rated</span>
           </div>
         </div>
-        <div class="card-expand-hint">Hover to expand ↓</div>
+        <div class="card-separator"></div>
+        <div class="card-expand-hint">Hover for full profile ✦</div>
         <div class="card-detail">
-          <div class="card-recovery">Total Recovered: <span>$300M+</span></div>
+          <div class="card-highlights">
+            <div class="highlight-item"><div class="highlight-label">Recovered</div><div class="highlight-value">$300M+</div></div>
+            <div class="highlight-item"><div class="highlight-label">Top Distinction</div><div class="highlight-value">NADC Top 1%</div></div>
+            <div class="highlight-item"><div class="highlight-label">Rating</div><div class="highlight-value">AV Highest Rated</div></div>
+            <div class="highlight-item"><div class="highlight-label">Specialty</div><div class="highlight-value">Fee Guarantee</div></div>
+          </div>
           <div class="card-tags"><span class="tag">Car Accidents</span><span class="tag">Serious Injury</span><span class="tag">Client Communication</span></div>
           <div class="card-body">
             <p class="card-desc">25+ years serving Las Vegas. NADC top 1% of law firms nationally, AV Highest Rated by Martindale-Hubbell. Known across Nevada as one of the top-referred PI firms specifically because of client communication — the #1 complaint at most firms. They guarantee your settlement portion equals or exceeds their fee in pre-lawsuit cases.</p>
             <div class="sw-grid">
               <div class="sw-box strengths"><span class="sw-label">✦ Strengths</span><ul class="sw-list"><li>NADC top 1% nationally</li><li>AV Highest Rated — Martindale-Hubbell</li><li>Communication-first reputation</li><li>Unique fee guarantee for pre-lawsuit cases</li></ul></div>
               <div class="sw-box weaknesses"><span class="sw-label">✦ Considerations</span><ul class="sw-list"><li>Less brand recognition than billboard firms</li><li>99% settle pre-trial — fewer jury verdicts to cite</li></ul></div>
-            </div>
           </div>
           <div class="card-footer"><a href="#contact" class="consult-btn">Get Matched — It's Free →</a></div>
         </div>
