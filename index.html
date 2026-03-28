@@ -273,6 +273,24 @@
   .footer-contact{font-size:11px;font-weight:600;color:var(--gold);text-decoration:none}
 
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+  .hero-empathy{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,1.6vw,17px);font-style:italic;color:rgba(255,255,255,0.4);letter-spacing:0.04em;margin-bottom:20px;animation:fadeUp 0.8s ease 0.05s both}
+  .empathy-section{background:#04070F;padding:80px 24px;position:relative;overflow:hidden}
+  .empathy-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(212,175,55,0.04) 0%,transparent 70%);pointer-events:none}
+  .empathy-inner{max-width:860px;margin:0 auto;text-align:center;position:relative;z-index:1}
+  .empathy-rule{width:1px;height:48px;background:linear-gradient(180deg,transparent,rgba(212,175,55,0.5),transparent);margin:0 auto 40px}
+  .empathy-kicker{font-size:9px;font-weight:700;letter-spacing:0.55em;text-transform:uppercase;color:rgba(212,175,55,0.45);margin-bottom:28px}
+  .empathy-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,42px);font-style:italic;font-weight:400;color:rgba(255,255,255,0.9);line-height:1.4;margin-bottom:32px;letter-spacing:0.02em}
+  .empathy-headline em{color:#D4AF37;font-style:italic}
+  .empathy-body{font-size:clamp(14px,1.6vw,16px);line-height:1.9;color:rgba(255,255,255,0.5);max-width:620px;margin:0 auto 48px}
+  .empathy-moments{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(212,175,55,0.1);margin-bottom:48px;border:1px solid rgba(212,175,55,0.1)}
+  .empathy-moment{background:#04070F;padding:32px 24px;text-align:center}
+  .empathy-moment-icon{width:36px;height:36px;margin:0 auto 16px;opacity:0.5}
+  .empathy-moment-text{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.8vw,18px);font-style:italic;color:rgba(255,255,255,0.7);line-height:1.6;margin-bottom:8px}
+  .empathy-moment-sub{font-size:11px;letter-spacing:0.12em;color:rgba(212,175,55,0.45);text-transform:uppercase}
+  .empathy-promise{display:inline-flex;align-items:center;gap:16px;border:1px solid rgba(212,175,55,0.2);padding:20px 36px;font-size:14px;color:rgba(255,255,255,0.6);letter-spacing:0.06em}
+  .empathy-promise-dot{width:6px;height:6px;border-radius:50%;background:#D4AF37;flex-shrink:0}
+  @media(max-width:640px){.empathy-moments{grid-template-columns:1fr}}
+  @media(max-width:720px){#guide .section-inner>div{grid-template-columns:1fr!important;gap:48px!important}}
   @keyframes scrollPulse{0%,100%{opacity:0.4}50%{opacity:0.9}}
 
   @media(max-width:1024px){
@@ -305,6 +323,7 @@
     <li><a href="#how-we-help">How We Help</a></li>
     <li><a href="#attorneys">Attorney Directory</a></li>
     <li><a href="#what-to-expect">What to Expect</a></li>
+    <li><a href="#guide">Your Guide</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Get Help Free</a></li>
   </ul>
@@ -316,14 +335,12 @@
     <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
     <div class="corner corner-bl"></div><div class="corner corner-br"></div>
   </div>
+  <p class="hero-empathy">If you've just been in an accident, you're probably feeling overwhelmed. That's exactly why we exist.</p>
   <div class="hero-eyebrow">Las Vegas Accident Advocacy · Free Guidance · No Obligation</div>
   <div class="hero-logo"><img src="index_files/IYAC-logo.jpg" onerror="this.src='IYAC-logo.jpg'" alt="In Your Corner Accident Consulting"></div>
-  <p class="hero-headline">You Deserve the Right Attorney — Not Just Any Attorney</p>
+  <p class="hero-headline">The attorney on the biggest billboard isn't always the best fit for your case. We find you the one who is.</p>
   <p class="hero-tagline">We fight for you — and help you through.</p>
-  <p class="hero-desc">After an accident, every attorney claims to be 
-the best. We cut through the noise. Our free advocacy service helps 
-injured Las Vegas residents and visitors find the attorney who is the 
-right fit for their specific case — no guesswork, no pressure, no cost.</p>
+  <p class="hero-desc">You've seen the billboards. You've heard the jingles. But the attorney who spends the most on advertising isn't necessarily the one who will fight hardest for you. We help you find the one who will.</p>
   <div class="hero-ctas">
     <a href="#contact" class="btn-primary">Get Free Guidance Now</a>
     <a href="#attorneys" class="btn-secondary">View Attorney Directory</a>
@@ -339,6 +356,56 @@ right fit for their specific case — no guesswork, no pressure, no cost.</p>
   <div class="trust-item"><span class="trust-num">$3B+</span><span class="trust-label">Combined Recovered</span></div>
   <div class="trust-item"><span class="trust-num">No</span><span class="trust-label">Obligation</span></div>
 </div>
+
+<!-- EMPATHY SECTION -->
+<section class="empathy-section">
+  <div class="empathy-inner">
+    <div class="empathy-rule"></div>
+    <div class="empathy-kicker">You Are Not Alone In This</div>
+    <h2 class="empathy-headline">
+      The moment after an accident is one of the most<br>
+      <em>disorienting experiences a person can go through.</em>
+    </h2>
+    <p class="empathy-body">
+      Your body is in shock. The other driver is on the phone. Someone is asking if you're okay. 
+      You're wondering if you should call the police, move the car, take photos, say something, 
+      say nothing. And somewhere in the back of your mind — you're already worried about what 
+      happens next. The bills. The time off work. Whether anyone is actually going to be on your side.
+    </p>
+    <div class="empathy-moments">
+      <div class="empathy-moment">
+        <svg class="empathy-moment-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="18" r="14" stroke="#D4AF37" stroke-width="1.2"/>
+          <path d="M18 10v8l5 3" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="empathy-moment-text">"I didn't know who to call or what to do first."</div>
+        <div class="empathy-moment-sub">Every client says this</div>
+      </div>
+      <div class="empathy-moment">
+        <svg class="empathy-moment-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6C11.4 6 6 11.4 6 18s5.4 12 12 12 12-5.4 12-12S24.6 6 18 6z" stroke="#D4AF37" stroke-width="1.2"/>
+          <path d="M14 18s1 3 4 3 4-3 4-3" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="13" cy="15" r="1.5" fill="#D4AF37"/>
+          <circle cx="23" cy="15" r="1.5" fill="#D4AF37"/>
+        </svg>
+        <div class="empathy-moment-text">"I talked to three attorneys and still didn't know what to do."</div>
+        <div class="empathy-moment-sub">More common than you think</div>
+      </div>
+      <div class="empathy-moment">
+        <svg class="empathy-moment-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 18h16M18 10l8 8-8 8" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="empathy-moment-text">"I felt like a case number, not a person who just got hurt."</div>
+        <div class="empathy-moment-sub">Why people come to us</div>
+      </div>
+    </div>
+    <div class="empathy-promise">
+      <div class="empathy-promise-dot"></div>
+      We don't start with the legal pitch. We start with you.
+      <div class="empathy-promise-dot"></div>
+    </div>
+  </div>
+</section>
 
 <!-- HOW WE HELP -->
 <section id="how-we-help">
@@ -1113,6 +1180,98 @@ insurance company. Negotiation begins. Most cases settle without trial —
  a fair settlement is reached you get your check (minus fees and medical
  liens). If not, your attorney takes it to trial. The attorneys on our 
 list are not afraid of either outcome.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCIDENT GUIDE BIO -->
+<section id="guide" style="background:linear-gradient(180deg,#060D20 0%,var(--navy-deep) 100%);padding:100px 24px;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 20% 50%,rgba(212,175,55,0.04) 0%,transparent 70%);pointer-events:none"></div>
+  <div class="section-inner" style="position:relative;z-index:1">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:960px;margin:0 auto">
+
+      <!-- LEFT — the story -->
+      <div>
+        <div class="section-eyebrow">Why This Exists</div>
+        <h2 class="section-title gold-text" style="margin-bottom:24px">I've Been Exactly<br>Where You Are.</h2>
+        <div style="height:1px;background:linear-gradient(90deg,rgba(212,175,55,0.4),transparent);margin-bottom:32px"></div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2vw,21px);font-style:italic;color:rgba(255,255,255,0.85);line-height:1.75;margin-bottom:24px">
+          "A few years ago, someone rear-ended me on the freeway. They were on their phone. I had a car I'd just paid for, a body that wouldn't stop hurting, and absolutely no idea what I was supposed to do next."
+        </p>
+        <p style="font-size:13px;line-height:1.9;color:rgba(255,255,255,0.5);margin-bottom:20px">
+          The insurance company low-balled me on the car. The attorney I found wasn't willing to fight — he wanted a quick settlement and moved on. I was traveling long distances in pain just to get treatment, because no one had pointed me toward anything closer.
+        </p>
+        <p style="font-size:13px;line-height:1.9;color:rgba(255,255,255,0.5);margin-bottom:20px">
+          Every mistake I made, every thing that was mishandled — I kept thinking: someone should exist who helps people avoid all of this. Someone with no agenda. Someone who's actually been through it.
+        </p>
+        <p style="font-size:13px;line-height:1.9;color:rgba(255,255,255,0.5);margin-bottom:36px">
+          That's what I built. And that's who picks up the phone when you call.
+        </p>
+        <div style="display:inline-flex;align-items:center;gap:20px;border-top:1px solid rgba(212,175,55,0.15);padding-top:28px;width:100%">
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:0.1em">Sascha Neubauer</div>
+            <div style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:4px">Founder · Accident Guide</div>
+          </div>
+          <div style="flex:1;height:1px;background:rgba(212,175,55,0.1)"></div>
+          <a href="#contact" style="font-family:'Cinzel',serif;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:0.7">Talk to me →</a>
+        </div>
+      </div>
+
+      <!-- RIGHT — what changed / the pillars -->
+      <div>
+        <div style="background:rgba(212,175,55,0.04);border:1px solid rgba(212,175,55,0.12);padding:40px 36px">
+          <div style="font-size:8px;font-weight:700;letter-spacing:0.5em;text-transform:uppercase;color:rgba(212,175,55,0.45);margin-bottom:24px">Every Problem Became a Service</div>
+
+          <div style="display:flex;flex-direction:column;gap:0">
+
+            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(212,175,55,0.08)">
+              <div style="width:32px;height:32px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Cinzel',serif;font-size:10.5px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:0.06em;margin-bottom:5px">The insurance lowball</div>
+                <div style="font-size:11.5px;color:rgba(255,255,255,0.4);line-height:1.6">I know exactly how adjusters are trained. I know what your car and your case are actually worth.</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(212,175,55,0.08)">
+              <div style="width:32px;height:32px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Cinzel',serif;font-size:10.5px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:0.06em;margin-bottom:5px">The distant chiropractor</div>
+                <div style="font-size:11.5px;color:rgba(255,255,255,0.4);line-height:1.6">Accident Undone arranges local care near you — not wherever the referral network happens to send people.</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(212,175,55,0.08)">
+              <div style="width:32px;height:32px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Cinzel',serif;font-size:10.5px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:0.06em;margin-bottom:5px">The attorney who wouldn't fight</div>
+                <div style="font-size:11.5px;color:rgba(255,255,255,0.4);line-height:1.6">Every firm in this directory was chosen because they fight. Not because they advertise the most.</div>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:20px;align-items:flex-start;padding:20px 0">
+              <div style="width:32px;height:32px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7l4 4 6-6" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div style="font-family:'Cinzel',serif;font-size:10.5px;font-weight:700;color:rgba(255,255,255,0.8);letter-spacing:0.06em;margin-bottom:5px">Having no one to guide me</div>
+                <div style="font-size:11.5px;color:rgba(255,255,255,0.4);line-height:1.6">That's the whole reason I exist. You shouldn't have to figure this out alone.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="margin-top:20px;padding:18px 24px;border:1px solid rgba(212,175,55,0.15);text-align:center">
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:0.06em">This service is <span style="color:var(--gold);font-weight:700">completely free</span> — always has been, always will be.</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
